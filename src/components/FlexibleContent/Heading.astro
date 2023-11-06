@@ -1,50 +1,27 @@
 ---
-import { log } from "node_modules/astro/dist/core/logger/core"
-import { parseHTML, sbTextColors } from '@utils/utils.js'
+import { parseHTML } from '@utils/utils.js'
 const { module } = Astro.props
 
 console.log('module in heading', module)
 let active
 let heading
 let headingTag
-let Element
-let textColor
-let textClass
-let marginTop
-let marginBottom
-let marginClass
-let textAlign
+let classes
 
 if (module) {
     active = module.active
+    classes = module.tailwindClasses?.toString()
+    console.log('classes', classes)
     heading = module.heading
-    headingTag = module.headingTag
-    Element = headingTag
-    textColor = module.textColor.toLowerCase()
-
-    if (module.marginTop) {
-        marginTop = `mt-${module.marginTop}`
-    } else {
-        marginTop = 'mt-0'
-    }
-
-    if (module.marginBottom) {
-        marginBottom = `mb-${module.marginBottom}`
-    } else {
-        marginBottom = 'mb-0'
-    }
-
-    textAlign = `${module.textAlign}`
-
-    textClass = sbTextColors[textColor] + ' ' + textAlign + ' ' + marginTop + ' ' + marginBottom
+    // headingTag = module.headingTag.toString()
+    // console.log('heading', heading, headingTag, typeof headingTag)
 }
 
 ---
 
+
 {
     active && (
-        <Element class={textClass}>
-            {heading}
-        </Element>
+        <Fragment set:html={heading} />
     )
 }

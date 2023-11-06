@@ -36,11 +36,6 @@ export const fragments = `
 ... on ModulesLayoutsHeading {
     active
     heading
-    headingTag
-    textColor
-    marginTop
-    marginBottom
-    textAlign
   }
 ... on ModulesLayoutsHero {
         active
