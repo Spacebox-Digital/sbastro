@@ -1,6 +1,6 @@
 ---
 import { parse } from 'node-html-parser'
-import { parseHTML, slugify, backgroundColors } from '@utils/utils.js'
+import { parseHTML, slugify, sbBGColors } from '@utils/utils.js'
 
 const { module } = Astro.props
 const active = module?.active
@@ -38,7 +38,7 @@ if (module) {
 
 {
     active && (
-        <div class={`callout-outer p-12 ${backgroundColors[backgroundColor]}`}>
+        <div class={`callout-outer p-12 ${sbBGColors[backgroundColor]}`}>
             <div class="callout-inner wrap-xl mx-auto flex flex-wrap xl:flex-nowrap gap-12">
                 <div
                     class={`callout-image w-full lg:w-1/2 ${
@@ -67,7 +67,7 @@ if (module) {
                         <div class="callout-content-cta flex max-w-[300px]">
                             <a
                                 href={module.callToAction.url}
-                                class={`asas-button ${backgroundColors[ctaColor]} !mx-0`}
+                                class={`asas-button ${sbBGColors[ctaColor]} !mx-0`}
                                 target={module.callToAction.target}
                             >
                                 {module.callToAction.title}

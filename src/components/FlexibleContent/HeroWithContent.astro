@@ -1,5 +1,5 @@
 ---
-import { parseHTML, slugify, backgroundColors } from '@utils/utils.js'
+import { parseHTML, slugify, sbBGColors } from '@utils/utils.js'
 const { module } = Astro.props
 
 const active = module?.active
@@ -99,7 +99,7 @@ const contentHorizontalPositionClass = {
                     {module?.heroCta && (
                         <div class="hero-cta flex items-center justify-center">
                             <a
-                                class={`btn ${backgroundColors[ctaColor]}`}
+                                class={`btn ${sbBGColors[ctaColor]}`}
                                 href={module?.heroCta?.url}
                                 target={module?.heroCta?.target}
                             >

@@ -1,5 +1,5 @@
 ---
-import { backgroundColors } from '@utils/utils.js'
+import { sbBGColors } from '@utils/utils.js'
 const { module } = Astro.props
 
 const active = module?.active
@@ -27,10 +27,10 @@ const column2BackgroundColor = column2?.columnBackgroundColor.toLowerCase()
                             <div
                                 class={`column p-12 ${
                                     i === 0
-                                        ? backgroundColors[
+                                        ? sbBGColors[
                                               column1BackgroundColor
                                           ]
-                                        : backgroundColors[
+                                        : sbBGColors[
                                               column2BackgroundColor
                                           ]
                                 }`}

@@ -1,5 +1,5 @@
 ---
-import { backgroundColors } from '@utils/utils.js'
+import { sbBGColors } from '@utils/utils.js'
 const { module } = Astro.props
 
 const active = module?.active
@@ -19,7 +19,7 @@ const videoSource = `https://www.youtube.com/embed/${lastPart}`
 
 {
     active && (
-        <div class={`callout-outer p-12 ${backgroundColors[backgroundColor]}`}>
+        <div class={`callout-outer p-12 ${sbBGColors[backgroundColor]}`}>
             <div class="callout-inner wrap-xl mx-auto flex flex-wrap xl:flex-nowrap gap-12">
                 <div class="callout-video">
                     <object width="640" height="360">
