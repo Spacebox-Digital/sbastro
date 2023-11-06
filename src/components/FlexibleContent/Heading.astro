@@ -22,8 +22,18 @@ if (module) {
     Element = headingTag
     textColor = module.textColor.toLowerCase()
 
-    marginTop = `mt-${module.marginTop}`
-    marginBottom = `mb-${module.marginBottom}`
+    if (module.marginTop) {
+        marginTop = `mt-${module.marginTop}`
+    } else {
+        marginTop = 'mt-0'
+    }
+
+    if (module.marginBottom) {
+        marginBottom = `mb-${module.marginBottom}`
+    } else {
+        marginBottom = 'mb-0'
+    }
+
     textAlign = `${module.textAlign}`
 
     textClass = sbTextColors[textColor] + ' ' + textAlign + ' ' + marginTop + ' ' + marginBottom
