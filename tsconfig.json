@@ -1,0 +1,28 @@
+{
+    "extends": "astro/tsconfigs/base",
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "react",
+        "target": "ESNext",
+        "allowSyntheticDefaultImports": true,
+        "module": "ESNext",
+        "baseUrl": ".",
+        "esModuleInterop": true,
+        "strictNullChecks": false,
+        "paths": {
+            "@components/*": ["src/components/*"],
+            "@icons/*": ["src/components/Icons/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@assets/*": ["src/assets/*"],
+            "@images/*": ["src/assets/images/*"],
+            "@styles/*": ["src/styles/*"],
+            "@content/*": ["src/content/*"],
+            "@api/*": ["src/api/*"],
+            "@utils/*": ["src/utils/*"],
+            "@data/*": ["src/data/*"],
+            "@hooks/*": ["src/hooks/*"],
+            "@stores/*": ["src/stores/*"],
+            "@pages/*": ["src/pages/*"],
+        }
+    }
+}

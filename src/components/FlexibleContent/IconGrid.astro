@@ -1,0 +1,130 @@
+---
+import { parse } from 'node-html-parser'
+import { parseHTML, slugify } from '@utils/utils.js'
+const { module } = Astro.props
+
+// console.log('module in IconGrid', module)
+
+const active = module?.active
+
+let heading = ''
+let content
+let items = []
+let body
+let paragraphs
+let h2s: any = []
+let h3s: any = []
+let images = []
+
+if (module) {
+    heading = module.heading
+    items = module.items
+    content = parseHTML(module.content)
+}
+---
+
+{
+    active && (
+        <div class="icon-grid-outer bg-cyan-100 py-12 px-4 lg:px-0">
+            <div class="icon-grid-inner wrap-xl mx-auto">
+                <div class="icon-grid-content p-12 bg-asas-blue">
+                    <h2 class="text-2xl lg:text-4xl font-bold text-white">
+                        {heading}
+                    </h2>
+                    <div class="icon-grid-content-content text-white">
+                        {content}
+                    </div>
+                </div>
+                <div class="icon-grid-items grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 p-6 bg-white gap-x-8 ">
+                    {items.map((item, i) => {
+                        const icon = item.icon.node
+                        const itemContent = parseHTML(item.content)
+                        const itemSlug = slugify(item.heading)
+                        return (
+                            <div
+                                class={`icon-grid-item pb-8 ${itemSlug} ${
+                                    i === 0 ? 'bg-asas-cyan-50 px-4' : ''
+                                } `}
+                            >
+                                <div class="icon-grid-item-inner flex flex-col justify-center">
+                                    <div
+                                        class="icon-grid-item-icon mb-4 p-3 min-h-[200px] flex items-center justify-center"
+                                        data-item={itemSlug}
+                                    >
+                                        <img
+                                            class="cursor-pointer w-[100px]"
+                                            src={icon?.sourceUrl}
+                                            alt={icon?.altText}
+                                            data-item={itemSlug}
+                                        />
+                                    </div>
+                                    <div
+                                        class="icon-grid-item-title h-[56px] mb-2 px-4 "
+                                        data-title={itemSlug}
+                                    >
+                                        <h3 class="font-bold text-2xl text-center">
+                                            {item.heading}
+                                        </h3>
+                                    </div>
+                                    <div class="icon-grid-item-content-content md:hidden p-4">
+                                        {itemContent}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                    {items?.map((item, i) => {
+                        const itemContent = parseHTML(item.content)
+                        const itemSlug = slugify(item.heading)
+                        return (
+                            <div
+                                class={`icon-grid-item-content lg:col-span-5 bg-asas-cyan-50 p-8 min-h-[155px] hidden items-center ${
+                                    i === 0 ? 'md:flex' : 'md:hidden'
+                                }`}
+                                data-content={itemSlug}
+                            >
+                                <div class="icon-grid-item-content-content">
+                                    {itemContent}
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+<script>
+    const items = document.querySelectorAll('.icon-grid-item')
+    const icons = document.querySelectorAll('.icon-grid-item-icon img')
+    const contents = document.querySelectorAll('.icon-grid-item-content')
+
+    icons.forEach((icon) => {
+        icon.addEventListener('click', (e) => {
+            if (e !== null && e.target instanceof HTMLElement) {
+                const iconParent = e.target.parentNode
+                const itemSlug = e.target.dataset.item
+                console.log('itemSlug', itemSlug)
+
+                contents.forEach((content) => {
+                    const $this = content
+                    if (content !== null && content instanceof HTMLElement) {
+                        content.classList.add('md:hidden')
+                        content.classList.remove('md:flex')
+                        if (content.dataset.content === itemSlug) {
+                            items.forEach((item) => {
+                                item.classList.remove('bg-asas-cyan-50')
+                            })
+                            icon.closest('.icon-grid-item').classList.add(
+                                'bg-asas-cyan-50'
+                            )
+                            content.classList.remove('md:hidden')
+                            content.classList.add('md:flex')
+                        }
+                    }
+                })
+            }
+        })
+    })
+</script>

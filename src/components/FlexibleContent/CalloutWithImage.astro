@@ -1,0 +1,81 @@
+---
+import { parse } from 'node-html-parser'
+import { parseHTML, slugify, backgroundColors } from '@utils/utils.js'
+
+const { module } = Astro.props
+const active = module?.active
+
+let heading
+let content
+let backgroundColor
+let headingBackgroundColor
+let body
+let paragraphs
+let h2s: any = []
+let h3s: any = []
+let images = []
+let imageSide
+let ctaColor
+
+if (module) {
+    backgroundColor = module.backgroundColor?.toLowerCase() || 'white'
+    heading = parseHTML(module.heading)
+
+    content = parseHTML(module.calloutContent)
+
+    imageSide = module.imageSide || 'left'
+    ctaColor = module.ctaColor
+
+    console.log('ctaColor', ctaColor)
+}
+---
+
+<style>
+    .callout-content-content {
+        font-size: 18px;
+    }
+</style>
+
+{
+    active && (
+        <div class={`callout-outer p-12 ${backgroundColors[backgroundColor]}`}>
+            <div class="callout-inner wrap-xl mx-auto flex flex-wrap xl:flex-nowrap gap-12">
+                <div
+                    class={`callout-image w-full lg:w-1/2 ${
+                        imageSide === 'left' ? 'order-1' : 'order-2'
+                    }`}
+                >
+                    <img
+                        src={module.image?.node.sourceUrl}
+                        alt={module.image?.node.altText}
+                    />
+                </div>
+                <div
+                    class={`callout-content w-full lg:w-1/2 text-white ${
+                        imageSide === 'left' ? 'order-2' : 'order-1'
+                    }`}
+                >
+                    <h2 class="text-2xl lg:text-4xl font-bold mb-3">
+                        {heading}
+                    </h2>
+
+                    {content && (
+                        <div class="callout-content-content">{content}</div>
+                    )}
+
+                    {module.callToAction && (
+                        <div class="callout-content-cta flex max-w-[300px]">
+                            <a
+                                href={module.callToAction.url}
+                                class={`asas-button ${backgroundColors[ctaColor]} !mx-0`}
+                                target={module.callToAction.target}
+                            >
+                                {module.callToAction.title}
+                            </a>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}

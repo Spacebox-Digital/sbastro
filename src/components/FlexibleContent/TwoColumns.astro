@@ -1,0 +1,62 @@
+---
+import { backgroundColors } from '@utils/utils.js'
+const { module } = Astro.props
+
+const active = module?.active
+
+// console.log('module in TwoColumns', module)
+
+const columns = module?.columns
+
+// console.log('columns in TwoColumns', columns)
+
+const column1 = columns[0]
+const column2 = columns[1]
+
+const column1BackgroundColor = column1?.columnBackgroundColor.toLowerCase()
+const column2BackgroundColor = column2?.columnBackgroundColor.toLowerCase()
+---
+
+{
+    active && (
+        <div class="two-columns-outer bg-asas-cyan-100 lg:p-24">
+            <div class="two-columns-inner wrap-xl mx-auto">
+                <div class="two-columns grid grid-cols-1 lg:grid-cols-2">
+                    {module?.columns.map((c, i) => {
+                        return (
+                            <div
+                                class={`column p-12 ${
+                                    i === 0
+                                        ? backgroundColors[
+                                              column1BackgroundColor
+                                          ]
+                                        : backgroundColors[
+                                              column2BackgroundColor
+                                          ]
+                                }`}
+                            >
+                                <div class="column-inner">
+                                    <div class="column-content text-center">
+                                        <h2 class="column-title text-white text-2xl lg:text-4xl font-bold mb-4">
+                                            {c?.heading}
+                                        </h2>
+                                        {c?.subhead && (
+                                            <h3 class="column-subhead text-white !font-roboto !font-normal text-lg">
+                                                {c?.subhead}
+                                            </h3>
+                                        )}
+                                        {c?.content && (
+                                            <div class="column-content-content">
+                                                {c?.content}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </div>
+    )
+}

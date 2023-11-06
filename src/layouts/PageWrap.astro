@@ -1,0 +1,40 @@
+---
+const slug = Astro.props
+const { pageData } = Astro.props
+
+console.log('pageData', pageData)
+---
+
+<div id="content">
+    <div id="inner-content" class="wrap-xl mx-auto px-4 xl:px-0">
+        <main
+            id="main"
+            class="main"
+            role="main"
+            itemscope
+            itemprop="mainContentOfPage"
+            itemtype="https://schema.org/Blog"
+        >
+            <article
+                id=""
+                class={`page page-${slug} mb-6 pb-12 prose`}
+                role="article"
+                itemscope
+                itemprop="blogPost"
+                itemtype="https://schema.org/BlogPosting"
+            >
+                <header class="article-header entry-header">
+                    <h1
+                        class="entry-title page-title text-xl md:text-2xl lg:text-4xl mb-0"
+                        itemprop="headline"
+                    >
+                        {pageData && pageData.title}
+                    </h1>
+                </header>
+                <section class="entry-content w-full" itemprop="articleBody">
+                    <slot />
+                </section>
+            </article>
+        </main>
+    </div>
+</div>

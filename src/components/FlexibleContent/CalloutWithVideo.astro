@@ -1,0 +1,52 @@
+---
+import { backgroundColors } from '@utils/utils.js'
+const { module } = Astro.props
+
+const active = module?.active
+
+const backgroundColor = module.backgroundColor.toLowerCase()
+
+const videoUrl = module.calloutImage
+const lastPart = videoUrl.split('/').pop()
+const videoSource = `https://www.youtube.com/embed/${lastPart}`
+---
+
+<style>
+    embed {
+        height: 360px !important;
+    }
+</style>
+
+{
+    active && (
+        <div class={`callout-outer p-12 ${backgroundColors[backgroundColor]}`}>
+            <div class="callout-inner wrap-xl mx-auto flex flex-wrap xl:flex-nowrap gap-12">
+                <div class="callout-video">
+                    <object width="640" height="360">
+                        <param name="movie" value={videoSource} />
+                        <param name="allowFullScreen" value="true" />
+                        <param name="allowscriptaccess" value="always" />
+                        <embed
+                            width="640"
+                            height=""
+                            src={videoSource}
+                            class="youtube-player"
+                            type="text/html"
+                            allow-fullscreen="true"
+                        />
+                    </object>
+                </div>
+                <div class="callout-content text-white">
+                    <h2>{module.heading}</h2>
+
+                    {module.calloutContent ? (
+                        <div
+                            class="callout-content"
+                            set:html={module.calloutContent}
+                        />
+                    ) : null}
+                </div>
+            </div>
+        </div>
+    )
+}

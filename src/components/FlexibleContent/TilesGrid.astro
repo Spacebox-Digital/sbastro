@@ -1,0 +1,134 @@
+---
+import { parse } from 'node-html-parser'
+import { parseHTML, slugify, backgroundColors } from '@utils/utils.js'
+const { module } = Astro.props
+
+// console.log('module in tileGrid', module)
+
+const active = module?.active
+
+let heading = ''
+let content
+let backgroundColor
+let headingBackgroundColor
+let tiles = []
+let body
+let paragraphs
+let h2s: any = []
+let h3s: any = []
+let images = []
+
+if (module) {
+    backgroundColor = module.backgroundColor.toLowerCase()
+    headingBackgroundColor =
+        module.headingBackgroundColor?.toLowerCase() || '#006b71'
+    heading = module.heading
+    tiles = module.tiles
+    content = parseHTML(module.content)
+}
+---
+
+{
+    active && (
+        <div
+            class={`tile-grid-outer py-12 px-4 lg:px-0 ${backgroundColors[backgroundColor]}`}
+        >
+            <div class="tile-grid-inner wrap-xl mx-auto">
+                <div
+                    class={`tile-grid-content py-6 px-12 ${backgroundColors[headingBackgroundColor]}`}
+                >
+                    <h2 class="text-2xl lg:text-4xl font-bold text-white">
+                        {heading}
+                    </h2>
+                    <div class="tile-grid-content-content text-white">
+                        {content}
+                    </div>
+                </div>
+                <div class="tile-grid-tiles grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-6 bg-white gap-x-8 ">
+                    {tiles.map((tile, i) => {
+                        // console.log('tile', tile)
+                        const tileImage = tile.tileImage.node
+                        const tileContent = parseHTML(tile.tileContent)
+                        const tileSlug = slugify(tile.tileHeading)
+                        const tileCtaLink = tile.tileCta?.url || ''
+                        const tileCtaText = tile.tileCta?.title || ''
+                        const tileCtaTarget = tile.tileCta?.target || ''
+                        return (
+                            <div class={`tile-grid-tile pb-8 ${tileSlug}`}>
+                                <div class="tile-grid-tile-inner flex flex-col justify-center">
+                                    <div
+                                        class="tile-grid-tile-tile mb-4 p-3 flex tiles-center justify-center"
+                                        data-tile={tileSlug}
+                                    >
+                                        <a
+                                            href={tileCtaLink}
+                                            target={tileCtaTarget}
+                                            class="hover:opacity-80"
+                                        >
+                                            <img
+                                                src={tileImage?.sourceUrl}
+                                                alt={tileImage?.altText}
+                                                data-tile={tileSlug}
+                                            />
+                                        </a>
+                                    </div>
+                                    <div
+                                        class="tile-grid-tile-titl px-4"
+                                        data-title={tileSlug}
+                                    >
+                                        <h2 class="font-bold text-2xl text-center">
+                                            <a
+                                                href={tileCtaLink}
+                                                target={tileCtaTarget}
+                                                class="hover:opacity-80"
+                                            >
+                                                {tile.tileHeading}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <div class="tile-grid-tile-content-content text-center">
+                                        {tileContent}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+<script>
+    // const tiles = document.querySelectorAll('.tile-grid-tile')
+    // const tiles = document.querySelectorAll('.tile-grid-tile-tile img')
+    // const contents = document.querySelectorAll('.tile-grid-tile-content')
+
+    // tiles.forEach((tile) => {
+    //     tile.addEventListener('click', (e) => {
+    //         if (e !== null && e.target instanceof HTMLElement) {
+    //             const tileParent = e.target.parentNode
+    //             const tileSlug = e.target.dataset.tile
+    //             console.log('tileSlug', tileSlug)
+
+    //             contents.forEach((content) => {
+    //                 const $this = content
+    //                 if (content !== null && content instanceof HTMLElement) {
+    //                     content.classList.add('md:hidden')
+    //                     content.classList.remove('md:flex')
+    //                     if (content.dataset.content === tileSlug) {
+    //                         tiles.forEach((tile) => {
+    //                             tile.classList.remove('bg-asas-cyan-50')
+    //                         })
+    //                         tile.closest('.tile-grid-tile').classList.add(
+    //                             'bg-asas-cyan-50'
+    //                         )
+    //                         content.classList.remove('md:hidden')
+    //                         content.classList.add('md:flex')
+    //                     }
+    //                 }
+    //             })
+    //         }
+    //     })
+    // })
+</script>

@@ -1,0 +1,115 @@
+---
+import { parse } from 'node-html-parser'
+import { parseHTML, slugify, backgroundColors } from '@utils/utils.js'
+const { module } = Astro.props
+
+const active = module?.active
+
+let heroImage
+let heroImageMobile
+let headingTextSize
+let headingTextSizeMobile
+let content
+let ctaColor
+let contentVerticalPosition
+let contentHorizontalPosition
+
+if (module) {
+    heroImage = module.heroImage?.node
+    heroImageMobile = module.heroImageMobile?.node
+    headingTextSize = module.textSize || 'text-base lg:text-3xl'
+    headingTextSizeMobile = module.textSizeMobile
+    content = parseHTML(module.heroContent)
+    ctaColor = module.ctaColor?.toLowerCase() || '#0067b1'
+    contentVerticalPosition = module.contentVerticalPosition || 'center'
+    contentHorizontalPosition = module.contentHorizontalPosition || 'center'
+}
+
+const headingTextSizeClass = {
+    xs: 'text-xs lg:text-sm',
+    sm: 'text-sm lg:text-base',
+    md: 'text-[1rem] lg:text-lg',
+    lg: 'text-lg lg:text-xl',
+    xl: 'text-xl lg:text-2xl',
+    '2xl': 'text-2xl lg:text-3xl',
+    '3xl': 'text-3xl lg:text-4xl',
+    '4xl': 'text-4xl lg:text-5xl',
+    '5xl': 'text-5xl lg:text-6xl',
+    '6xl': 'text-6xl lg:text-6xl',
+}
+
+const contentVerticalPositionClass = {
+    top: 'top-[5%]',
+    center: 'top-1/2 transform -translate-y-1/2',
+    bottom: 'bottom-[15%]',
+}
+
+const contentHorizontalPositionClass = {
+    left: 'justify-start',
+    center: 'justify-center',
+    right: 'justify-end',
+}
+---
+
+{
+    active && (
+        <div class="hero-outer">
+            <div class="hero-inner relative flex items-center justify-center">
+                <div class="hero-overlay" />
+                <div class="hero-image">
+                    <div class="hero-image-desktop hidden lg:flex">
+                        <img
+                            src={heroImage?.sourceUrl}
+                            alt={heroImage?.altText}
+                        />
+                    </div>
+                    <div class="hero-image-mobile flex lg:hidden">
+                        <img
+                            src={heroImageMobile?.sourceUrl}
+                            alt={heroImageMobile?.altText}
+                        />
+                    </div>
+                </div>
+                <div
+                    class={`hero-content absolute wrap-lg mx-auto text-center z-10 px-4 lg:px-0 flex flex-col ${contentVerticalPositionClass[contentVerticalPosition]} ${contentHorizontalPositionClass[contentHorizontalPosition]}`}
+                >
+                    <div class="heading-desktop hidden md:flex text-center items-center justify-center">
+                        <h2
+                            class={`text-white font-bold mb-2 text-center ${headingTextSizeClass[headingTextSize]}`}
+                        >
+                            {module?.heading}
+                        </h2>
+                    </div>
+
+                    <div class="heading-mobile flex md:hidden text-center items-center justify-center">
+                        <h2
+                            class={`text-white mb-2 font-bold text-center ${headingTextSizeClass[headingTextSizeMobile]}`}
+                        >
+                            {module?.heroHeadingMobile
+                                ? module?.heroHeadingMobile
+                                : module?.heading}
+                        </h2>
+                    </div>
+
+                    {content && (
+                        <div class="hero-content-content text-center flex items-center justify-center text-white">
+                            {content}
+                        </div>
+                    )}
+
+                    {module?.heroCta && (
+                        <div class="hero-cta flex items-center justify-center">
+                            <a
+                                class={`btn ${backgroundColors[ctaColor]}`}
+                                href={module?.heroCta?.url}
+                                target={module?.heroCta?.target}
+                            >
+                                {module?.heroCta?.title}
+                            </a>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}

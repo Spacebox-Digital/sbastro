@@ -1,0 +1,62 @@
+---
+const { module } = Astro.props
+
+const active = module?.active
+const desktopImages = module?.desktopImages?.nodes
+const mobileImages = module?.mobileImages?.nodes
+
+const heading = module?.heading
+const content = module?.content
+const cta = module?.cta
+const ctaButtonColor = module?.ctaButtonColor
+
+const randomDesktopImage =
+    desktopImages[Math.floor(Math.random() * desktopImages.length)]
+const randomMobileImage =
+    mobileImages[Math.floor(Math.random() * mobileImages.length)]
+---
+
+{
+    active && (
+        <div class="hero-carousel-outer">
+            <div class="hero-carousel-inner">
+                <div class="hero-carousel-images relative">
+                    {randomDesktopImage && (
+                        <div class="hidden md:block">
+                            <div class={`desktop-image relative flex`}>
+                                <img
+                                    src={randomDesktopImage?.sourceUrl}
+                                    alt={randomDesktopImage?.altText}
+                                />
+                                <div class="desktop-image-content absolute flex flex-col items-center justify-center w-full h-full">
+                                    <div class="content-inner mx-auto text-center wrap-xl flex flex-col items-center justify-center">
+                                        <h1 class="desktop-image-heading text-5xl text-white font-bold">
+                                            {heading}
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    {randomMobileImage && (
+                        <div class="block md:hidden">
+                            <div class={`mobile-image relative flex`}>
+                                <img
+                                    src={randomMobileImage?.sourceUrl}
+                                    alt={randomMobileImage?.altText}
+                                />
+                                <div class="mobile-image-content absolute flex flex-col items-center justify-center w-full h-full">
+                                    <div class="content-inner mx-auto text-center wrap-xl flex flex-col items-center justify-center">
+                                        <h1 class="mobile-image-heading text-3xl text-white font-bold">
+                                            {heading}
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}

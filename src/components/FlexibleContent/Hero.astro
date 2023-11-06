@@ -1,0 +1,19 @@
+---
+const { module } = Astro.props
+
+const active = module?.active
+
+const heroImage = module?.heroImage?.node
+---
+
+{
+    active && (
+        <div class="hero-outer">
+            <div class="hero-inner">
+                <div class="hero-image">
+                    <img src={heroImage?.sourceUrl} alt={heroImage?.altText} />
+                </div>
+            </div>
+        </div>
+    )
+}

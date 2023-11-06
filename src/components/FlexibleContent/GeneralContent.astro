@@ -1,0 +1,46 @@
+---
+import { parse } from 'node-html-parser'
+import { parseHTML, slugify, backgroundColors } from '@utils/utils.js'
+const { module } = Astro.props
+
+const active = module?.active
+
+let heading
+let content
+let backgroundColor
+let body
+let paragraphs
+let h2s: any = []
+let h3s: any = []
+let images = []
+
+if (module) {
+    backgroundColor = module.backgroundColor?.toLowerCase()
+    heading = parseHTML(module.heading)
+
+    content = parseHTML(module.content)
+}
+---
+
+{
+    active && (
+        <div
+            class={`general-content-outer pt-6 pb-10 flex justify-center ${backgroundColors[backgroundColor]}`}
+        >
+            <div class="general-content-inner wrap-xl mx-auto flex px-4 xl:px-0 w-full">
+                <div class="general-content w-full">
+                    {heading && (
+                        <h2 class="general-content-title font-extrabold mb-4 text-2xl lg:text-4xl">
+                            {heading}
+                        </h2>
+                    )}
+                    {content && (
+                        <div class="general-content-body wrap-md mx-auto">
+                            {content}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}

@@ -1,0 +1,35 @@
+---
+import parse from 'html-react-parser'
+const { module } = Astro.props
+
+const active = module?.active
+---
+
+{
+    active && (
+        <div class="links-list-outer">
+            <div class="links-list-inner wrap-xl mx-auto flex flex-col">
+                <div class="links-list-heading">
+                    <h2>{module?.heading}</h2>
+                </div>
+                <div class="links-list" set:html={module?.content}>
+                    <ul class="link-list">
+                        {module?.links.map((link) => {
+                            return (
+                                <li class="link-list-item">
+                                    <a
+                                        href={link?.link.url}
+                                        target={link?.link.target}
+                                        class="link-list-item"
+                                    >
+                                        {link?.link.title}
+                                    </a>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    )
+}

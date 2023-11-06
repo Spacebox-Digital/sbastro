@@ -1,0 +1,67 @@
+---
+import MainLayout from '@layouts/MainLayout.astro'
+import {
+    flexibleContentComponents,
+    fragments,
+} from '@components/FlexibleContent/FlexibleContentComponents.js'
+import { getLayoutsByUri } from '@api/wp.js'
+
+const pageWithLayouts = await getLayoutsByUri('/', fragments)
+
+// console.log('pageWithLayouts', pageWithLayouts)
+const layouts = pageWithLayouts.data?.modules?.layouts
+const pageId = pageWithLayouts?.data?.id
+---
+
+<MainLayout>
+    <div id="content" class="bg-sb-space-blue-600">
+        <div id="inner-content" class="wrap-lg mx-auto px-4 xl:px-0 py-12">
+            <main
+                id="main"
+                class="main"
+                role="main"
+                itemscope
+                itemprop="mainContentOfPage"
+                itemtype="https://schema.org/Page"
+            >
+                <article
+                    id=""
+                    class={`page`}
+                    role="article"
+                    itemscope
+                    itemprop="Page"
+                    itemtype="https://schema.org/Page"
+                >
+                    <header class="article-header entry-header hidden">
+                        <h1 class="entry-title page-title" itemprop="headline">
+                            Welcome to Spacebox!
+                        </h1>
+                    </header>
+                    <section
+                        class="entry-content w-full"
+                        itemprop="articleBody"
+                    >
+                        {
+                            layouts &&
+                                layouts.map((layout, index) => {
+                                    const Component =
+                                        flexibleContentComponents[
+                                            layout.__typename
+                                        ]
+                                    console.log('Component', Component)
+                                    if (!Component) return null
+                                    return (
+                                        <Component
+                                            key={index}
+                                            module={layout}
+                                            id={pageId}
+                                        />
+                                    )
+                                })
+                        }
+                    </section>
+                </article>
+            </main>
+        </div>
+    </div>
+</MainLayout>
