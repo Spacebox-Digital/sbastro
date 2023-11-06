@@ -1,0 +1,32 @@
+---
+import MainLayout from '@layouts/MainLayout.astro'
+import {
+    flexibleContentComponents,
+    fragments,
+} from '@components/FlexibleContent/FlexibleContentComponents.js'
+import { getLayoutsByUri } from '@api/wp.js'
+
+let slug = Astro.params.page
+
+// console.log('slug', slug)
+
+const pageWithLayouts = await getLayoutsByUri(slug, fragments)
+const layouts = pageWithLayouts?.data?.modules?.layouts
+const pageData = pageWithLayouts?.data
+let pageId = pageWithLayouts?.data?.id
+
+// console.log('layouts', layouts)
+// console.log('pageWithLayouts', pageWithLayouts)
+---
+
+<MainLayout>
+    {
+        layouts &&
+            layouts.map((layout, index) => {
+                const Component = flexibleContentComponents[layout.__typename]
+                // console.log('Component', Component)
+                if (!Component) return null
+                return <Component key={index} module={layout} id={pageId} />
+            })
+    }
+</MainLayout>

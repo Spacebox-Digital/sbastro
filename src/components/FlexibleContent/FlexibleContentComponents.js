@@ -37,7 +37,10 @@ export const fragments = `
     active
     heading
     headingTag
-    tailwindClasses
+    textColor
+    marginTop
+    marginBottom
+    textAlign
   }
 ... on ModulesLayoutsHero {
         active

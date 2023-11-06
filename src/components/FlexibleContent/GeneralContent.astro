@@ -1,6 +1,5 @@
 ---
-import { parse } from 'node-html-parser'
-import { parseHTML, slugify, backgroundColors } from '@utils/utils.js'
+import { parseHTML, slugify, sbBGColors } from '@utils/utils.js'
 const { module } = Astro.props
 
 const active = module?.active
@@ -8,16 +7,11 @@ const active = module?.active
 let heading
 let content
 let backgroundColor
-let body
-let paragraphs
-let h2s: any = []
-let h3s: any = []
-let images = []
+
 
 if (module) {
     backgroundColor = module.backgroundColor?.toLowerCase()
     heading = parseHTML(module.heading)
-
     content = parseHTML(module.content)
 }
 ---
@@ -25,7 +19,7 @@ if (module) {
 {
     active && (
         <div
-            class={`general-content-outer pt-6 pb-10 flex justify-center ${backgroundColors[backgroundColor]}`}
+            class={`general-content-outer pt-6 pb-10 flex justify-center ${sbBGColors[backgroundColor]}`}
         >
             <div class="general-content-inner wrap-xl mx-auto flex px-4 xl:px-0 w-full">
                 <div class="general-content w-full">
