@@ -10,31 +10,28 @@ let widthClass
 let link
 
 if (module) {
-    active = module?.active
-    logo = module?.logo
-    width = module?.width
-    if (width) {
-        widthClass = `max-w-[${width}px]`
-    } else {
-        widthClass = 'w-full'
-    }
-    link = module?.link
-
+	active = module?.active
+	logo = module?.logo
+	width = module?.width
+	if (width) {
+		widthClass = `max-w-[${width}px] mx-auto`
+	} else {
+		widthClass = 'w-full'
+	}
+	link = module?.link
 }
-
 ---
 
 {
-    active && (
-        <div class="logo-outer">
-            <div class="logo-inner">
-                {logo && (
-                    <div class={`logo ${widthClass}`}>
-                        <img src={logo.node?.sourceUrl} alt={logo.node?.altText} />
-                    </div>
-                )}
-
-            </div>
-        </div>
-    )
+	active && (
+		<div class="logo-outer">
+			<div class="logo-inner">
+				{logo && (
+					<div class={`logo ${widthClass}`}>
+						<img src={logo.node?.sourceUrl} alt={logo.node?.altText} />
+					</div>
+				)}
+			</div>
+		</div>
+	)
 }

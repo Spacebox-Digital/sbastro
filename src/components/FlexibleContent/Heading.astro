@@ -9,19 +9,13 @@ let headingTag
 let classes
 
 if (module) {
-    active = module.active
-    classes = module.tailwindClasses?.toString()
-    console.log('classes', classes)
-    heading = module.heading
-    // headingTag = module.headingTag.toString()
-    // console.log('heading', heading, headingTag, typeof headingTag)
+	active = module.active
+	classes = module.tailwindClasses?.toString()
+	console.log('classes', classes)
+	heading = module.heading
+	// headingTag = module.headingTag.toString()
+	// console.log('heading', heading, headingTag, typeof headingTag)
 }
-
 ---
 
-
-{
-    active && (
-        <Fragment set:html={heading} />
-    )
-}
+{active && <Fragment set:html={heading} />}

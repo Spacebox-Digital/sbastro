@@ -1,4 +1,5 @@
 import { default as Heading } from './Heading.astro'
+import { default as CTA } from './CTA.astro'
 import { default as Hero } from './Hero.astro'
 import { default as Logo } from './Logo.astro'
 import { default as HeroWithContent } from './HeroWithContent.astro'
@@ -13,6 +14,7 @@ import { default as TilesGrid } from './TilesGrid.astro'
 
 export const flexibleContentComponents = {
     ModulesLayoutsHeading: Heading,
+    ModulesLayoutsCta: CTA,
     ModulesLayoutsHero: Hero,
     ModulesLayoutsLogo: Logo,
     ModulesLayoutsHeroWithContent: HeroWithContent,
@@ -36,6 +38,15 @@ export const fragments = `
 ... on ModulesLayoutsHeading {
     active
     heading
+  }
+  ... on ModulesLayoutsCta {
+    active
+    cta {
+      target
+      title
+      url
+    }
+    ctaColor
   }
 ... on ModulesLayoutsHero {
         active

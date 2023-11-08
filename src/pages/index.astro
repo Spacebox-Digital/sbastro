@@ -1,67 +1,69 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro'
-import {
-    flexibleContentComponents,
-    fragments,
-} from '@components/FlexibleContent/FlexibleContentComponents.js'
-import { getLayoutsByUri } from '@api/wp.js'
 
-const pageWithLayouts = await getLayoutsByUri('/', fragments)
-
-// console.log('pageWithLayouts', pageWithLayouts)
-const layouts = pageWithLayouts.data?.modules?.layouts
-const pageId = pageWithLayouts?.data?.id
+import SpaceboxLogoLockupLight from '@assets/images/SpaceboxLogoLockupLight.astro'
+import PackLogo from '@assets/images/PackLogo.astro'
+import ShopifyLogo from '@assets/images/ShopifyLogo.astro'
 ---
 
 <MainLayout>
-    <div id="content" class="bg-sb-space-blue-600">
-        <div id="inner-content" class="wrap-lg mx-auto px-4 xl:px-0 py-12">
-            <main
-                id="main"
-                class="main"
-                role="main"
-                itemscope
-                itemprop="mainContentOfPage"
-                itemtype="https://schema.org/Page"
-            >
-                <article
-                    id=""
-                    class={`page`}
-                    role="article"
-                    itemscope
-                    itemprop="Page"
-                    itemtype="https://schema.org/Page"
-                >
-                    <header class="article-header entry-header hidden">
-                        <h1 class="entry-title page-title" itemprop="headline">
-                            Welcome to Spacebox!
-                        </h1>
-                    </header>
-                    <section
-                        class="entry-content w-full"
-                        itemprop="articleBody"
-                    >
-                        {
-                            layouts &&
-                                layouts.map((layout, index) => {
-                                    const Component =
-                                        flexibleContentComponents[
-                                            layout.__typename
-                                        ]
-                                    console.log('Component', Component)
-                                    if (!Component) return null
-                                    return (
-                                        <Component
-                                            key={index}
-                                            module={layout}
-                                            id={pageId}
-                                        />
-                                    )
-                                })
-                        }
-                    </section>
-                </article>
-            </main>
-        </div>
-    </div>
+	<div id="content" class="bg-sb-space-blue py-12">
+		<div id="inner-content" class="wrap-xl mx-auto px-4 xl:px-0">
+			<main
+				id="main"
+				class="main"
+				role="main"
+				itemscope
+				itemprop="mainContentOfPage"
+				itemtype="https://schema.org/Blog"
+			>
+				<article
+					id="home-page"
+					class="page home-page"
+					role="article"
+					itemscope
+					itemprop="blogPost"
+					itemtype="https://schema.org/Page"
+				>
+					<header class="article-header page-header">
+						<h1 class="entry-title page-title hidden" itemprop="headline">Spacebox</h1>
+						<h2 class="mb-3 text-center text-xl text-sb-pear lg:text-2xl">Hello. We're:</h2>
+						<div class="spacebox-logo mx-auto max-w-[1000px]">
+							<SpaceboxLogoLockupLight />
+						</div>
+						<h3 class="mb-4 mt-4 text-center text-3xl text-sb-pear lg:text-4xl">
+							Spacebox is revolutionizing<br />headless e-commerce.
+						</h3>
+					</header>
+					<section
+						class="entry-content flex w-full flex-col items-center justify-center"
+						itemprop="articleBody"
+					>
+						<p class="mx-auto mb-6 max-w-[500px] text-center text-xl text-sb-foam">
+							We create best-in-class headless storefronts for businesses that are ready to <span
+								class="text-sb-orange">blast off</span
+							>. 🚀
+						</p>
+						<div class="home-cta flex items-center justify-center">
+							<a
+								href="/contact"
+								class="btn-primary decooration-none bg-sb-green hover:bg-sb-green-700"
+								>Work With Us</a
+							>
+						</div>
+						<div
+							class="home-logos mx-auto mt-8 inline-flex items-center justify-center gap-x-6 rounded-3xl bg-sb-space-blue-600 px-6 py-3"
+						>
+							<div class="home-logos__item flex items-center justify-center text-sb-jasmine">
+								<PackLogo width="w-[40px]" />
+							</div>
+							<div class="home-logos__item flex items-center justify-center">
+								<ShopifyLogo width="w-[140px]" />
+							</div>
+						</div>
+					</section>
+				</article>
+			</main>
+		</div>
+	</div>
 </MainLayout>

@@ -2,7 +2,7 @@ import { flatListToHierarchical } from '../utils/utils.js'
 
 export async function sendWPRequest({ query, variables }) {
     // // console.log query, variables in Shopify Request', query, variables)
-    const result = await fetch('https://wp.spacebox.digital/graphql', {
+    const result = await fetch('http://spaceboxwp.local/graphql', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

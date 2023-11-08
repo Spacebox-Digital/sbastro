@@ -1,0 +1,33 @@
+---
+import { parseHTML, sbBGColors } from '@utils/utils.js'
+const { module } = Astro.props
+
+console.log('CTA module', module)
+
+const active = module?.active
+
+let cta
+let ctaColor
+let hoverClass
+
+if (module) {
+	cta = module.cta
+	ctaColor = sbBGColors[module.ctaColor.toLowerCase()]
+    console.log('ctaColor', ctaColor)
+    hoverClass = `hover:${ctaColor}-600`
+    console.log('hoverClass', hoverClass)
+}
+---
+
+{
+    active && (
+    <div class="cta-outer">
+        <div class="cta-inner flex items-center justify-center text-center">
+            {cta && (
+                    <a class={`btn-primary ${ctaColor} ${hoverClass}`} href={cta.url} target={cta.target}>{cta?.title}</a>
+
+            )}
+        </div>
+    </div>
+    )
+}

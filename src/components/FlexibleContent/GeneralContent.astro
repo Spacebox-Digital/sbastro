@@ -8,33 +8,26 @@ let heading
 let content
 let backgroundColor
 
-
 if (module) {
-    backgroundColor = module.backgroundColor?.toLowerCase()
-    heading = parseHTML(module.heading)
-    content = parseHTML(module.content)
+	backgroundColor = module.backgroundColor?.toLowerCase()
+	heading = parseHTML(module.heading)
+	content = parseHTML(module.content)
 }
 ---
 
 {
-    active && (
-        <div
-            class={`general-content-outer my-6 flex justify-center ${sbBGColors[backgroundColor]}`}
-        >
-            <div class="general-content-inner wrap-xl mx-auto flex px-4 xl:px-0 w-full">
-                <div class="general-content w-full">
-                    {heading && (
-                        <h2 class="general-content-title font-extrabold mb-4 text-2xl lg:text-4xl">
-                            {heading}
-                        </h2>
-                    )}
-                    {content && (
-                        <div class="general-content-body wrap-md mx-auto">
-                            {content}
-                        </div>
-                    )}
-                </div>
-            </div>
-        </div>
-    )
+	active && (
+		<div class={`general-content-outer my-6 flex justify-center ${sbBGColors[backgroundColor]}`}>
+			<div class="general-content-inner wrap-xl mx-auto flex w-full px-4 xl:px-0">
+				<div class="general-content w-full">
+					{heading && (
+						<h2 class="general-content-title mb-4 text-2xl font-extrabold lg:text-4xl">
+							{heading}
+						</h2>
+					)}
+					{content && <div class="general-content-body wrap-md mx-auto">{content}</div>}
+				</div>
+			</div>
+		</div>
+	)
 }
