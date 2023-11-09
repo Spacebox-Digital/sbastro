@@ -1,5 +1,9 @@
 ---
 import '../assets/styles/style.css'
+import Header from '@components/Header/Header.astro'
+import Footer from '@components/Footer/Footer.astro'
+
+const { slug } = Astro.props
 ---
 
 <html lang="en">
@@ -15,13 +19,27 @@ import '../assets/styles/style.css'
         </style>
     </head>
 
-    <body class={`relative`}>
+    <body class={`relative page-${slug}`}>
         <div class="above-content sr-only focus:not-sr-only">
             <a
                 class="skip-link text-xs text-center block wrap-sm underline"
                 href="#main">Skip to content</a
             >
         </div>
+        <Header />
         <slot />
+        <Footer />
+        <script is:inline>
+
+            window.addEventListener('scroll', function () {
+                let scroll = window.scrollY
+                if (scroll > 64) {
+                    // console.log('scrolled past header', scroll)
+                    document.body.classList.add('sticky-header')
+                } else {
+                    document.body.classList.remove('sticky-header')
+                }
+            })
+        </script>
     </body>
 </html>

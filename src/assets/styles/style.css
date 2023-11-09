@@ -170,3 +170,24 @@ a {
 .btn-primary:hover {
     color: #fff;
 }
+
+.page-home #header {
+    display: none;
+}
+
+.page-home.sticky-header #header {
+    display: flex;
+}
+
+.page-home.sticky-header {
+    margin-top: 0;
+}
+
+.sticky-header {
+    margin-top: 64px;
+}
+
+.sticky-header #header {
+    position: fixed;
+    transition: all 0.2s ease-in-out;
+}
