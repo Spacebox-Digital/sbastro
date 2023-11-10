@@ -3,94 +3,92 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Archivo';
-    src: url('/fonts/Archivo-Variable.woff2')
-            format('woff2 supports variations'),
-        url('/fonts/Archivo-Variable.woff2') format('woff2-variations');
-    font-weight: 1 999;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Archivo';
+	src:
+		url('/fonts/Archivo-Variable.woff2') format('woff2 supports variations'),
+		url('/fonts/Archivo-Variable.woff2') format('woff2-variations');
+	font-weight: 1 999;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Archivo Italic';
-    src: url('/fonts/Archivo-Italic-Variable.woff2')
-            format('woff2 supports variations'),
-        url('/fonts/Archivo-Italic.woff2') format('woff2-variations');
-    font-weight: 1 999;
-    font-style: italic;
-    font-display: swap;
+	font-family: 'Archivo Italic';
+	src:
+		url('/fonts/Archivo-Italic-Variable.woff2') format('woff2 supports variations'),
+		url('/fonts/Archivo-Italic.woff2') format('woff2-variations');
+	font-weight: 1 999;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Archivo Black';
-    src: url('/fonts/ArchivoBlack-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Archivo Black';
+	src: url('/fonts/ArchivoBlack-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Archivo Expanded';
-    src: url('/fonts/ArchivoExpanded-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Archivo Expanded';
+	src: url('/fonts/ArchivoExpanded-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Archivo Expanded';
-    src: url('/fonts/ArchivoExpanded-ExtraBold.woff2') format('woff2');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Archivo Expanded';
+	src: url('/fonts/ArchivoExpanded-ExtraBold.woff2') format('woff2');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Archivo Expanded';
-    src: url('/fonts/ArchivoExpanded-Black.woff2') format('woff2');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Archivo Expanded';
+	src: url('/fonts/ArchivoExpanded-Black.woff2') format('woff2');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Karla';
-    src: url('/fonts/Karla-VariableFont.ttf')
-            format('truetype supports variations'),
-        url('/fonts/Karla-VariableFont.ttf') format('truetype-variations');
-    font-weight: 1 999;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Karla';
+	src:
+		url('/fonts/Karla-VariableFont.ttf') format('truetype supports variations'),
+		url('/fonts/Karla-VariableFont.ttf') format('truetype-variations');
+	font-weight: 1 999;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Karla';
-    src: url('/fonts/Karla-VariableFont.ttf')
-            format('truetype supports variations'),
-        url('/fonts/Karla-VariableFont.ttf') format('truetype-variations');
-    font-weight: 1 999;
-    font-style: italic;
-    font-display: swap;
+	font-family: 'Karla';
+	src:
+		url('/fonts/Karla-VariableFont.ttf') format('truetype supports variations'),
+		url('/fonts/Karla-VariableFont.ttf') format('truetype-variations');
+	font-weight: 1 999;
+	font-style: italic;
+	font-display: swap;
 }
-
-
 
 html,
 body {
-    height: 100%;
-    color: #353535;
-    font-family: 'Archivo', sans-serif;
-    font-size: 18px;
-    line-height: 1.64;
+	height: 100%;
+	color: #353535;
+	font-family: 'Archivo', sans-serif;
+	font-size: 18px;
+	line-height: 1.64;
 }
 
 h1,
 h2,
 h3 {
-    font-family: 'Archivo Expanded', sans-serif;
-    font-weight: 800;
-    letter-spacing: 0.02rem;
+	font-family: 'Archivo Expanded', sans-serif;
+	font-weight: 800;
+	letter-spacing: 0.02rem;
 }
 
 p,
@@ -101,93 +99,171 @@ input,
 textarea,
 button,
 label {
-    font-family: 'Karla', sans-serif;
+	font-family: 'Karla', sans-serif;
 }
 
 a {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .width-unset {
-    width: unset;
+	width: unset;
 }
 .height-unset {
-    height: unset;
+	height: unset;
 }
 .max-width-unset {
-    max-width: unset;
+	max-width: unset;
 }
 .max-height-unset {
-    max-height: unset;
+	max-height: unset;
 }
 .min-width-unset {
-    min-width: unset;
+	min-width: unset;
 }
 .min-height-unset {
-    min-height: unset;
+	min-height: unset;
 }
 
 .wrap-xs {
-    max-width: 450px;
+	max-width: 450px;
 }
 
 .wrap-sm {
-    max-width: 600px;
+	max-width: 600px;
 }
 
 .wrap-md {
-    max-width: 900px;
+	max-width: 900px;
 }
 
 .wrap-lg {
-    max-width: 1200px;
+	max-width: 1200px;
 }
 
 .wrap-xl {
-    max-width: 1400px;
+	max-width: 1400px;
 }
 
 .wrap-2xl {
-    max-width: 1800px;
+	max-width: 1800px;
 }
 
-.btn-primary, .btn-primary a {
-    color: #fff;
-    font-family: 'Archivo Expanded', 'Archivo Black', 'Archivo', sans-serif;
-    font-weight: 400;
-    font-size: 1.5rem;
-    height: 72px;
-    padding: 0 2.2rem;
-    letter-spacing: 0.05rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.btn-primary,
+.btn-primary a {
+	color: #fff;
+	font-family: 'Archivo Expanded', 'Archivo Black', 'Archivo', sans-serif;
+	font-weight: 400;
+	font-size: 1.5rem;
+	height: 72px;
+	padding: 0 2.2rem;
+	letter-spacing: 0.05rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 
 .btn-primary:hover {
-    color: #fff;
+	color: #fff;
 }
 
 .page-home #header {
-    display: none;
+	display: none;
 }
 
 .page-home.sticky-header #header {
-    display: flex;
+	display: flex;
 }
 
 .page-home.sticky-header {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 .sticky-header {
-    margin-top: 64px;
+	margin-top: 64px;
 }
 
 .sticky-header #header {
-    position: fixed;
-    transition: all 0.2s ease-in-out;
+	position: fixed;
+	transition: all 0.2s ease-in-out;
+}
+
+.content-grid {
+	--padding-inline: 1rem;
+	--content-max-width: 900px;
+	--breakout-max-width: 1200px;
+
+	--breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+	display: grid;
+	grid-template-columns:
+		[full-width-start] minmax(var(--padding-inline), 1fr)
+		[breakout-start] minmax(0, var(--breakout-size))
+		[content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+		[content-end]
+		minmax(0, var(--breakout-size)) [breakout-end]
+		minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+	grid-column: content;
+}
+
+.content-grid > .breakout {
+	grid-column: breakout;
+}
+
+.content-grid > .full-width {
+	grid-column: full-width;
+
+	display: grid;
+	grid-template-columns: inherit;
+}
+
+img.full-width {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+.content-grid {
+	--padding-inline: 1rem;
+	--content-max-width: 900px;
+	--breakout-max-width: 1200px;
+
+	--breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+	display: grid;
+	grid-template-columns:
+		[full-width-start] minmax(var(--padding-inline), 1fr)
+		[breakout-start] minmax(0, var(--breakout-size))
+		[content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+		[content-end]
+		minmax(0, var(--breakout-size)) [breakout-end]
+		minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+	grid-column: content;
+}
+
+.content-grid > .breakout {
+	grid-column: breakout;
+}
+
+.content-grid > .full-width {
+	grid-column: full-width;
+
+	display: grid;
+	grid-template-columns: inherit;
+}
+
+img.full-width {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
 }
