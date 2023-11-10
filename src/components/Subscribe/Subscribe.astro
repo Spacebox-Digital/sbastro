@@ -57,9 +57,11 @@
 
 		const url = new URL('https://api.sender.net/v2/subscribers')
 
+        const token = import.meta.env.SENDER_TOKEN
+
 		let headers = {
 			Authorization:
-				'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTEwMTNhNDM5NzkyNWI1NGM3MzI4MjExNzI0NWM3Y2M3NzM4NGY5Mjc3YzZiMjIxZmVlNzRhZmVmNmZiY2FiNzQxN2E0OTc3Yzk5NzFlYzYiLCJpYXQiOiIxNjk5NDI2NzYzLjQxNTk0NiIsIm5iZiI6IjE2OTk0MjY3NjMuNDE1OTUzIiwiZXhwIjoiNDg1MzAyMzE2My40MTMwODUiLCJzdWIiOiI4MjIzNTciLCJzY29wZXMiOltdfQ.dCmxOtY147lSb3NzDJa63IlKTGQnCVs17HkjZjG-HkQwYQ9-2h2jxo1VEVUWNLQeTVub3Vcm45Uqo-19ngsfMQ',
+				`Bearer ${token}`,
 			'Content-Type': 'application/json',
 			Accept: 'application/json'
 		}
