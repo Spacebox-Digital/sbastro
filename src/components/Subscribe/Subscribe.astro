@@ -49,6 +49,10 @@
 	const subscribeForm = document.getElementById('subscribe')
 	const formSuccess = document.querySelector('.form-success')
 
+    const token = import.meta.env.SENDER_TOKEN
+
+    console.log('token', token)
+
 	subscribeForm.addEventListener('submit', function (event) {
 		event.preventDefault()
 		const email = document.getElementById('email').value
@@ -57,7 +61,7 @@
 
 		const url = new URL('https://api.sender.net/v2/subscribers')
 
-        const token = import.meta.env.SENDER_TOKEN
+
 
 		let headers = {
 			Authorization:
