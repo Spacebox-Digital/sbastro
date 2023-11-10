@@ -1,47 +1,46 @@
 ---
-
 const navItems = [
-    {
-        name: 'What We Do',
-        nav: 'what-we-do',
-        link: '/what-we-do',
-
-    },
-    {
-        name: 'Our Team',
-        nav: 'team',
-        link: '/team',
-
-    },
-    {
-        name: 'Our Work',
-        nav: 'work',
-        link: '/work',
-
-    },
-    {
-        name: 'Contact Us',
-        nav: 'contact',
-        link: '/contact',
-    },
+	{
+		name: 'What We Do',
+		nav: 'what-we-do',
+		link: '/what-we-do'
+	},
+	{
+		name: 'Our Team',
+		nav: 'team',
+		link: '/team'
+	},
+	{
+		name: 'Our Work',
+		nav: 'work',
+		link: '/work'
+	},
+	{
+		name: 'Contact Us',
+		nav: 'contact',
+		link: '/contact'
+	}
 ]
-
 ---
 
-
-
 <div class="nav-outer">
-    <div class="nav-inner">
-        <nav class="nav primary-nav" role="navigation" aria-label="Main Menu">
-            <ul class="nav-list flex items-center gap-x-6">
-                {navItems.map((item, index) => (
-                    <li class="nav-item">
-                        <a class="nav-link no-underline font-archivo-expanded uppercase text-sb-pear hover:text-sb-pear-200 tracking-wide" href={item.link} data-nav={item.nav}>{item.name}</a>
-                    </li>
-                ))}
-
-            </ul>
-
-        </nav>
-    </div>
+	<div class="nav-inner">
+		<nav class="nav primary-nav" role="navigation" aria-label="Main Menu">
+			<ul class="nav-list flex items-center gap-x-4 lg:gap-x-6">
+				{
+					navItems.map((item, index) => (
+						<li class="nav-item">
+							<a
+								class="nav-link font-karla text-xs font-semibold uppercase tracking-wide text-sb-pear no-underline hover:text-sb-pear-200 lg:font-archivo-expanded lg:text-base lg:font-normal"
+								href={item.link}
+								data-nav={item.nav}
+							>
+								{item.name}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
 </div>
