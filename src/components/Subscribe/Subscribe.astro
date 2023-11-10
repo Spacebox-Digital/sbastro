@@ -27,6 +27,11 @@
 				value="Subscribe"
 			/>
 		</form>
+		<div class="form-success hidden">
+			<p class="my-2 font-archivo-expanded text-lg font-normal text-sb-pear">
+				Thank you for subscribing!
+			</p>
+		</div>
 		<p class="mt-2 text-xs font-normal leading-tight text-sb-foam-700">
 			We do not sell or share your data. Period. Unsubscribe at any time.
 		</p>
@@ -37,3 +42,49 @@
 		</h2>
 	</div>
 </div>
+
+<script>
+	const subscribeForm = document.getElementById('subscribe')
+	const formSuccess = document.querySelector('.form-success')
+
+	subscribeForm.addEventListener('submit', function (event) {
+		event.preventDefault()
+		const email = document.getElementById('email').value
+
+		console.log('email', email)
+
+		const url = new URL('https://api.sender.net/v2/subscribers')
+
+		let headers = {
+			Authorization:
+				'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTEwMTNhNDM5NzkyNWI1NGM3MzI4MjExNzI0NWM3Y2M3NzM4NGY5Mjc3YzZiMjIxZmVlNzRhZmVmNmZiY2FiNzQxN2E0OTc3Yzk5NzFlYzYiLCJpYXQiOiIxNjk5NDI2NzYzLjQxNTk0NiIsIm5iZiI6IjE2OTk0MjY3NjMuNDE1OTUzIiwiZXhwIjoiNDg1MzAyMzE2My40MTMwODUiLCJzdWIiOiI4MjIzNTciLCJzY29wZXMiOltdfQ.dCmxOtY147lSb3NzDJa63IlKTGQnCVs17HkjZjG-HkQwYQ9-2h2jxo1VEVUWNLQeTVub3Vcm45Uqo-19ngsfMQ',
+			'Content-Type': 'application/json',
+			Accept: 'application/json'
+		}
+
+		let data = {
+			email: email,
+			trigger_automation: false
+		}
+
+		fetch(url, {
+			method: 'POST',
+			headers,
+			body: JSON.stringify(data)
+		}).then((response) => {
+			response.json().then((data) => {
+				console.log('data', data)
+				if (data.success) {
+					subscribeForm.style.display = 'none'
+					formSuccess.style.display = 'block'
+					setTimeout(() => {
+						subscribeForm.style.display = 'flex'
+						formSuccess.style.display = 'none'
+					}, 3000)
+				}
+			})
+		})
+
+		subscribeForm.reset()
+	})
+</script>
