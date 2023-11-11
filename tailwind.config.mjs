@@ -288,6 +288,16 @@ module.exports = {
 				'archivo-black': ['Archivo Black', 'Archivo', 'sans-serif'],
 				'archivo-expanded': ['Archivo Expanded', 'Archivo Black', 'Archivo', 'sans-serif'],
 				karla: ['Karla', 'sans-serif']
+			},
+			animation: {
+				'pulse-slow': 'pulse 16s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+			},
+
+			keyframes: {
+				pulse: {
+					'0%, 100%': { opacity: 0.35 },
+					'50%': { opacity: 0.1 }
+				}
 			}
 		}
 	},
