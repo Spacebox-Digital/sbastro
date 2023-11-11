@@ -1,40 +1,35 @@
 ---
-const slug = Astro.props
+const slug = Astro.props.page
 const { pageData } = Astro.props
 
-console.log('pageData', pageData)
+const backgroundColor = pageData?.bgColor ? pageData?.bgColor : 'bg-sb-space-blue'
+
+let pageSlug
+
+if (slug) {
+	pageSlug = slug
+} else {
+	pageSlug = pageData?.slug ? pageData.slug : ''
+}
 ---
 
-<div id="content">
-	<div id="inner-content" class="content-grid">
-		<main
-			id="main"
-			class="main"
-			role="main"
-			itemscope
-			itemprop="mainContentOfPage"
-			itemtype="https://schema.org/Blog"
-		>
-			<article
-				id=""
-				class={`page page-${slug} prose`}
-				role="article"
-				itemscope
-				itemprop="blogPost"
-				itemtype="https://schema.org/BlogPosting"
+<div id="content" class={`page page-${pageSlug} ${pageSlug}`}>
+	<main
+		id="main"
+		class=`main content-grid ${backgroundColor} py-6`
+		role="main"
+		itemscope
+		itemprop="mainContentOfPage"
+		itemtype="https://schema.org/Page"
+	>
+		<header class="article-header page-header">
+			<h1
+				class="entry-title page-title mb-0 font-archivo-expanded text-xl uppercase tracking-wide text-sb-pear md:text-2xl lg:text-4xl"
+				itemprop="headline"
 			>
-				<header class="article-header entry-header">
-					<h1
-						class="entry-title page-title mb-0 text-xl md:text-2xl lg:text-4xl"
-						itemprop="headline"
-					>
-						{pageData && pageData.title}
-					</h1>
-				</header>
-				<section class="entry-content w-full" itemprop="articleBody">
-					<slot />
-				</section>
-			</article>
-		</main>
-	</div>
+				{pageData && pageData.title}
+			</h1>
+		</header>
+		<slot />
+	</main>
 </div>

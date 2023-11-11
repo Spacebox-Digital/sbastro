@@ -1,0 +1,131 @@
+---
+import MainLayout from '@layouts/MainLayout.astro'
+
+import SpaceboxLogoLockupLight from '@assets/images/SpaceboxLogoLockupLight.astro'
+import PackLogo from '@assets/images/PackLogo.astro'
+import ShopifyLogo from '@assets/images/ShopifyLogo.astro'
+import NetflixLogo from '@assets/images/NetflixLogo.astro'
+import UMZULogo from '@assets/images/UMZULogo.astro'
+import Subscribe from '@components/Subscribe/Subscribe.astro'
+
+const slug = 'home'
+---
+
+<MainLayout slug={slug}>
+	<div id="content" class="min-h-[1200px]">
+		<div id="inner-content" class="">
+			<main
+				id="main"
+				class="main content-grid"
+				role="main"
+				itemscope
+				itemprop="mainContentOfPage"
+				itemtype="https://schema.org/Blog"
+			>
+				<article
+					id="home-page"
+					class="page home-page full-width bg-sb-space-blue-700 pb-6 pt-12 lg:py-12"
+					role="article"
+					itemscope
+					itemprop="blogPost"
+					itemtype="https://schema.org/Page"
+				>
+					<header class="article-header page-header">
+						<h1 class="entry-title page-title hidden" itemprop="headline">Spacebox</h1>
+						<h2 class="mb-3 text-center text-base text-sb-pear lg:text-2xl">Hello. We're:</h2>
+						<div class="spacebox-logo mx-auto px-4 lg:max-w-[1000px] lg:px-0">
+							<SpaceboxLogoLockupLight />
+						</div>
+						<h3 class="mb-4 mt-4 px-6 text-center text-xl text-sb-pear lg:px-0 lg:text-4xl">
+							Spacebox is revolutionizing<br />headless e-commerce.
+						</h3>
+					</header>
+					<section
+						class="entry-content wrap-xl mx-auto flex w-full flex-col items-center justify-center pb-12"
+						itemprop="articleBody"
+					>
+						<p class="mx-auto mb-6 max-w-[500px] text-center text-xl text-sb-foam">
+							We create best-in-class headless storefronts for businesses that are ready to <span
+								class="text-sb-orange">blast off</span
+							>. 🚀
+						</p>
+						<div class="home-cta flex items-center justify-center">
+							<a
+								href="/contact"
+								class="btn-primary decooration-none bg-sb-green hover:bg-sb-green-700"
+								>Work With Us</a
+							>
+						</div>
+						<div class="home-logos mt-6">
+							<h2
+								class="mb-2 text-center font-archivo-expanded text-sm uppercase tracking-wide text-sb-jasmine lg:text-base"
+							>
+								Our Partners
+							</h2>
+							<div
+								class="home-logos-inner inline-flex items-center justify-center gap-x-6 rounded-3xl bg-sb-space-blue px-6 py-3 lg:mx-auto"
+							>
+								<div class="home-logos__item flex items-center justify-center text-sb-jasmine">
+									<a
+										class="hover:opacity-80"
+										href="https://packdigital.com/"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<PackLogo width="w-[40px]" />
+									</a>
+								</div>
+								<div class="home-logos__item flex items-center justify-center">
+									<a
+										class="hover:opacity-80"
+										href="https://www.shopify.com/plus/solutions/headless-commerce"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<ShopifyLogo width="w-[140px]" />
+									</a>
+								</div>
+							</div>
+						</div>
+					</section>
+				</article>
+				<section class="clients full-width bg-sb-jasmine-100">
+					<h2
+						class="mb-3 pt-6 text-center text-2xl uppercase text-sb-space-blue lg:pt-12 lg:text-3xl"
+					>
+						Our Clients
+					</h2>
+					<div
+						class="clients-inner wrap-xl mx-auto flex flex-wrap items-center justify-center gap-x-24 gap-y-12 pb-8 pt-6 lg:flex-nowrap lg:pb-24 lg:pt-12"
+					>
+						<div class="home-logos__item flex items-center justify-center gap-x-8">
+							<a
+								class="hover:opacity-80"
+								href="https://netflix.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<NetflixLogo width="w-[160px]" />
+							</a>
+						</div>
+						<div class="home-logos__item flex items-center justify-center">
+							<a
+								class="hover:opacity-80"
+								href="https://umzu.com"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<UMZULogo width="w-[180px]" />
+							</a>
+						</div>
+					</div>
+				</section>
+				<section class="subscribe-outer full-width bg-sb-space-blue">
+					<section class="subscribe-inner px-6 lg:px-0">
+						<Subscribe />
+					</section>
+				</section>
+			</main>
+		</div>
+	</div>
+</MainLayout>

@@ -1,6 +1,12 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro'
 import PageWrap from '@layouts/PageWrap.astro'
+
+const pageData = {
+	title: 'Contact Us',
+	bgColor: 'bg-sb-space-blue',
+	slug: 'contact'
+}
 ---
 
 <style>
@@ -127,47 +133,40 @@ import PageWrap from '@layouts/PageWrap.astro'
 </style>
 
 <MainLayout>
-	<div class="form-page-outer bg-sb-space-blue-700">
-		<PageWrap>
-			<div class="form-page-inner wrap-md mx-auto flex flex-col py-12 px-6 lg:px-0">
-				<header class="page-header">
-					<h1 class="page-title mb-4 text-3xl uppercase tracking-wider text-sb-pear lg:text-4xl">
-						Contact Us
-					</h1>
-				</header>
-				<form
-					id="fs-frm"
-					name="simple-contact-form"
-					accept-charset="utf-8"
-					action="https://formspree.io/f/mdorjpkw"
-					method="POST"
+	<PageWrap pageData={pageData}>
+		<section class="content-outer pb-24 pt-6">
+			<form
+				id="fs-frm"
+				name="simple-contact-form"
+				accept-charset="utf-8"
+				action="https://formspree.io/f/mdorjpkw"
+				method="POST"
+			>
+				<label for="full-name" class="mb-2 text-lg font-medium text-sb-pear">Full Name:</label>
+				<input type="text" name="name" id="full-name" placeholder="First and Last" required="" />
+				<label class="mb-2 text-lg font-medium text-sb-pear">
+					Email:
+					<input type="email" name="email" placeholder="me@domain.com" required="" />
+				</label>
+				<label for="telephone" class="mb-2 text-lg font-medium text-sb-pear"
+					>Telephone Number (Optional):</label
 				>
-					<label for="full-name" class="mb-2 text-lg font-medium text-sb-pear">Full Name:</label>
-					<input type="text" name="name" id="full-name" placeholder="First and Last" required="" />
-					<label class="mb-2 text-lg font-medium text-sb-pear">
-						Email:
-						<input type="email" name="email" placeholder="me@domain.com" required="" />
-					</label>
-					<label for="telephone" class="mb-2 text-lg font-medium text-sb-pear"
-						>Telephone Number (Optional):</label
-					>
-					<input type="telephone" name="telephone" id="telephone" placeholder="(###) ###-####" />
-					<label for="subject" class="mb-2 text-lg font-medium text-sb-pear">Subject:</label>
-					<input type="text" name="_subject" id="subject" placeholder="Subject" required="" />
-					<label class="mb-2 text-lg font-medium text-sb-pear">
-						Message:
-						<textarea
-							name="message"
-							placeholder="All systems nominal. We are go for launch."
-							required=""></textarea>
-					</label>
-					<!-- your other form fields go here -->
-					<input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission" />
-					<button class="btn-primary !w-full bg-sb-green !text-sm lg:!text-xl" type="submit"
-						>Send Us A Message</button
-					>
-				</form>
-			</div>
-		</PageWrap>
-	</div>
+				<input type="telephone" name="telephone" id="telephone" placeholder="(###) ###-####" />
+				<label for="subject" class="mb-2 text-lg font-medium text-sb-pear">Subject:</label>
+				<input type="text" name="_subject" id="subject" placeholder="Subject" required="" />
+				<label class="mb-2 text-lg font-medium text-sb-pear">
+					Message:
+					<textarea
+						name="message"
+						placeholder="All systems nominal. We are go for launch."
+						required=""></textarea>
+				</label>
+				<!-- your other form fields go here -->
+				<input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission" />
+				<button class="btn-primary !w-full bg-sb-green !text-sm lg:!text-xl" type="submit"
+					>Send Us A Message</button
+				>
+			</form>
+		</section>
+	</PageWrap>
 </MainLayout>

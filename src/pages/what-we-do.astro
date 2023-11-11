@@ -1,17 +1,19 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro'
 import PageWrap from '@layouts/PageWrap.astro'
+import { Content as Content } from '@content/pages/what-we-do.md'
+
+const pageData = {
+	title: 'What We Do',
+	bgColor: 'bg-sb-space-blue',
+	slug: 'what-we-do'
+}
 ---
 
 <MainLayout>
-	<PageWrap>
-		<div class="content-outer min-h-[500px] bg-sb-space-blue py-12">
-			<div class="content-inner px-4 lg:px-0">
-				<h1 class="page-title mb-4 text-3xl uppercase tracking-wider text-sb-pear lg:text-4xl">
-					What We Do
-				</h1>
-				<p class="text-sb-foam">Coming soon!</p>
-			</div>
-		</div>
+	<PageWrap pageData={pageData}>
+		<section class="content-outer prose min-h-[500px] pb-24 pt-6 text-sb-foam">
+			<Content />
+		</section>
 	</PageWrap>
 </MainLayout>

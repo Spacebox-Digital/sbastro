@@ -7,39 +7,36 @@ const { slug } = Astro.props
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style>
-            svg {
-                width: 1em;
-                height: 1em;
-                color: currentColor;
-            }
-        </style>
-    </head>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			svg {
+				width: 1em;
+				height: 1em;
+				color: currentColor;
+			}
+		</style>
+	</head>
 
-    <body class={`relative page-${slug}`}>
-        <div class="above-content sr-only focus:not-sr-only">
-            <a
-                class="skip-link text-xs text-center block wrap-sm underline"
-                href="#main">Skip to content</a
-            >
-        </div>
-        <Header />
-        <slot />
-        <Footer />
-        <script is:inline>
-
-            window.addEventListener('scroll', function () {
-                let scroll = window.scrollY
-                if (scroll > 64) {
-                    // console.log('scrolled past header', scroll)
-                    document.body.classList.add('sticky-header')
-                } else {
-                    document.body.classList.remove('sticky-header')
-                }
-            })
-        </script>
-    </body>
+	<body class={`relative page-${slug}`}>
+		<div class="above-content sr-only focus:not-sr-only">
+			<a class="skip-link wrap-sm block text-center text-xs underline" href="#main"
+				>Skip to content</a
+			>
+		</div>
+		<Header />
+		<slot />
+		<Footer />
+		<script is:inline>
+			window.addEventListener('scroll', function () {
+				let scroll = window.scrollY
+				if (scroll > 64) {
+					document.body.classList.add('sticky-header')
+				} else {
+					document.body.classList.remove('sticky-header')
+				}
+			})
+		</script>
+	</body>
 </html>

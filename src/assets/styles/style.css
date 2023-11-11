@@ -219,51 +219,50 @@ a {
 
 .content-grid > .full-width {
 	grid-column: full-width;
-
 	display: grid;
 	grid-template-columns: inherit;
 }
 
-img.full-width {
-	width: 100%;
-	height: auto;
-	object-fit: cover;
-}
-.content-grid {
-	--padding-inline: 1rem;
-	--content-max-width: 900px;
-	--breakout-max-width: 1200px;
-
-	--breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
-
-	display: grid;
-	grid-template-columns:
-		[full-width-start] minmax(var(--padding-inline), 1fr)
-		[breakout-start] minmax(0, var(--breakout-size))
-		[content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
-		[content-end]
-		minmax(0, var(--breakout-size)) [breakout-end]
-		minmax(var(--padding-inline), 1fr) [full-width-end];
-}
-
-.content-grid > :not(.breakout, .full-width),
-.full-width > :not(.breakout, .full-width) {
-	grid-column: content;
-}
-
-.content-grid > .breakout {
-	grid-column: breakout;
-}
-
-.content-grid > .full-width {
-	grid-column: full-width;
-
+.full-width > img {
+    grid-column: full-width;
 	display: grid;
 	grid-template-columns: inherit;
+    object-fit: cover;
 }
 
-img.full-width {
+/* img.full-width {
 	width: 100%;
 	height: auto;
 	object-fit: cover;
+} */
+
+/* prose overrides */
+.prose {
+    max-width: 100% !important;
+}
+
+.prose h1 {
+    font-family: 'Archivo Expanded', sans-serif;
+    text-transform: uppercase;
+    color: #C2E812;
+    letter-spacing: 0.02rem;
+}
+
+.prose h2 {
+    color: #F4D06F;
+    text-transform: uppercase;
+    margin-top: 1.664em;
+    margin-bottom: 1rem;
+}
+
+.prose p, .prose li, .prose span, .prose div {
+    font-size: 1.125rem;
+    font-weight: 350 !important;
+}
+
+.prose a {
+    font-weight: 450 !important;
+    font-size: inherit !important;
+    color: #5BC0EB !important;
+    letter-spacing: 0.015rem;
 }
