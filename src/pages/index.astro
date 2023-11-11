@@ -2,7 +2,8 @@
 import { Image } from 'astro:assets'
 import MainLayout from '@layouts/MainLayout.astro'
 
-import heroImage from '@assets/images/spacebox-homepage-hero-1.webp'
+import heroImage from '@assets/images/space-hero-6.webp'
+import heroImageMobile from '@assets/images/space-hero-mobile-1.webp'
 import SpaceboxLogoLockupLight from '@assets/images/SpaceboxLogoLockupLight.astro'
 import PackLogo from '@assets/images/PackLogo.astro'
 import ShopifyLogo from '@assets/images/ShopifyLogo.astro'
@@ -33,24 +34,51 @@ const slug = 'home'
 					Spacebox is revolutionizing<br />headless e-commerce.
 				</h3>
 			</header>
-			<div class="hero-image full-width my-6">
-				<img class="full-width" src={heroImage.src} alt="space ship illustration" />
+			<div class="hero-image hero-image-desktop full-width relative mt-6">
+				<img
+					class="full-width hidden opacity-20 lg:visible"
+					src={heroImage.src}
+					alt="space ship illustration"
+				/>
+				<div class="content-wrap content absolute mx-auto max-w-[600px] place-self-center">
+					<p class="mx-auto mb-6 text-center text-sb-foam lg:text-2xl xl:text-3xl">
+						We create best-in-class headless storefronts for businesses that are ready to <span
+							class="text-sb-orange">blast off</span
+						>. 🚀
+					</p>
+					<div class="home-cta flex items-center justify-center">
+						<a
+							href="/contact"
+							class="btn-primary decooration-none bg-sb-green hover:bg-sb-green-700">Work With Us</a
+						>
+					</div>
+				</div>
+			</div>
+			<div class="hero-image-mobile full-width mt-6 lg:!hidden">
+				<img
+					class="full-width opacity-20"
+					src={heroImageMobile.src}
+					alt="space ship illustration"
+				/>
+				<div class="content-wrap content absolute place-self-center">
+					<p class="mx-auto mb-6 max-w-[500px] text-center text-xl text-sb-foam">
+						We create best-in-class headless storefronts for businesses that are ready to <span
+							class="text-sb-orange">blast off</span
+						>. 🚀
+					</p>
+					<div class="home-cta flex items-center justify-center">
+						<a
+							href="/contact"
+							class="btn-primary decooration-none bg-sb-green hover:bg-sb-green-700">Work With Us</a
+						>
+					</div>
+				</div>
 			</div>
 			<section
-				class="entry-content flex flex-col items-center justify-center pb-12 pt-6"
+				class="entry-content flex flex-col items-center justify-center pb-12"
 				itemprop="articleBody"
 			>
-				<p class="mx-auto mb-6 max-w-[500px] text-center text-xl text-sb-foam">
-					We create best-in-class headless storefronts for businesses that are ready to <span
-						class="text-sb-orange">blast off</span
-					>. 🚀
-				</p>
-				<div class="home-cta flex items-center justify-center">
-					<a href="/contact" class="btn-primary decooration-none bg-sb-green hover:bg-sb-green-700"
-						>Work With Us</a
-					>
-				</div>
-				<div class="home-logos mt-6">
+				<div class="home-logos -mt-6">
 					<h2
 						class="mb-2 text-center font-archivo-expanded text-sm uppercase tracking-wide text-sb-jasmine lg:text-base"
 					>

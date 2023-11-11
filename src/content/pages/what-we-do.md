@@ -1,4 +1,5 @@
 ---
+
 ---
 Spacebox is a team of developers and designers that is revolutionizing e-commerce in partnership with <a href="https://packdigital.com" target="_blank" rel="noopener noreferrer">Pack Digital</a>.
 
@@ -20,6 +21,6 @@ Our focus is on mid- to large-size businesses that are ready to grow — and fas
 ## Customizing the Customizer
 One of Pack's best features is the Customizer: a no-code drag-and-drop theme editor that gives brands ultimate control over how their product data and content is displayed with Reusable Content Blocks. Pack does the heavy lifting by pulling in all of your data from Shopify so brands can focus on crafting the experience they want for their customers.
 
-Yet, every e-commerce site is different and there are no one-size-fits-all content blocks that will work with every store or in every situation. Spacebox works with brands to build custom blocks to help them stand out from the crowd. [examples here]
+Yet, every e-commerce site is different and there are no one-size-fits-all set of content blocks that will work with every store or in every situation. Spacebox works with brands to build custom blocks to help them stand out from the crowd. [examples here]
 
 And, whether you want to manage your content yourself or have us manage it for you, we are at-the-ready. Contact us to get started today.

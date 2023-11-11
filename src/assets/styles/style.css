@@ -230,6 +230,7 @@ a {
     object-fit: cover;
 }
 
+
 /* img.full-width {
 	width: 100%;
 	height: auto;
@@ -265,4 +266,10 @@ a {
     font-size: inherit !important;
     color: #5BC0EB !important;
     letter-spacing: 0.015rem;
+}
+
+@media screen and (max-width: 1023px)  {
+    .hero-image-desktop {
+        display: none !important;
+    }
 }
