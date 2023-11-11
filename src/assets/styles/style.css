@@ -175,7 +175,7 @@ a {
 }
 
 .page-home.sticky-header #header {
-	display: flex;
+	display: grid;
 }
 
 .page-home.sticky-header {
