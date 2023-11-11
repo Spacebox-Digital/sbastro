@@ -23,4 +23,4 @@ One of Pack's best features is the Customizer: a no-code drag-and-drop theme edi
 
 Yet, every e-commerce site is different and there are no one-size-fits-all set of content blocks that will work with every store or in every situation. Spacebox works with brands to build custom blocks to help them stand out from the crowd.
 
-And, whether you want to manage your content yourself or have us manage it for you, we are at-the-ready. Contact us to get started today.
+And, whether you want to manage your content yourself or have us manage it for you, we are at-the-ready. <a href="/contact">Contact us</a> to get started today.
