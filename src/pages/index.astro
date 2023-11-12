@@ -11,6 +11,11 @@ import NetflixLogo from '@assets/images/NetflixLogo.astro'
 import UMZULogo from '@assets/images/UMZULogo.astro'
 import Subscribe from '@components/Subscribe/Subscribe.astro'
 
+import SpeedBadge from '@assets/images/extreme-speed-badge.svg'
+import AccessibilityBadge from '@assets/images/accessibility-badge.svg'
+import ComposableBadge from '@assets/images/composable-badge.svg'
+import HighImpactBadge from '@assets/images/high-impact-badge.svg'
+
 const slug = 'home'
 ---
 
@@ -30,17 +35,21 @@ const slug = 'home'
 				<div class="spacebox-logo mx-auto px-4 lg:max-w-[1000px] lg:px-0">
 					<SpaceboxLogoLockupLight />
 				</div>
-				<h3 class="mb-4 mt-4 px-6 text-center text-xl text-sb-pear lg:px-0 lg:text-4xl">
+				<h3
+					class="relative top-12 mb-4 mt-4 px-4 text-center text-xl text-sb-pear lg:px-0 lg:px-6 lg:text-4xl"
+				>
 					Spacebox is revolutionizing<br />headless e-commerce.
 				</h3>
 			</header>
 			<div class="hero-image hero-image-desktop full-width relative mt-6">
 				<img
-					class="full-width animate-pulse-slow hidden opacity-20 lg:visible"
+					class="full-width hidden animate-pulse-slow opacity-20 lg:visible"
 					src={heroImage.src}
 					alt="space ship illustration"
 				/>
-				<div class="content-wrap content absolute mx-auto max-w-[600px] place-self-center">
+				<div
+					class="content-wrap content absolute left-1/2 mx-auto w-full max-w-[600px] -translate-x-2/4 place-self-center"
+				>
 					<p class="mx-auto mb-6 text-center text-sb-foam lg:text-2xl xl:text-3xl">
 						We create best-in-class headless storefronts for businesses that are ready to <span
 							class="text-sb-orange">blast off</span
@@ -56,7 +65,7 @@ const slug = 'home'
 			</div>
 			<div class="hero-image-mobile full-width mt-6 lg:!hidden">
 				<img
-					class="full-width opacity-20"
+					class="full-width animate-pulse-slow opacity-20"
 					src={heroImageMobile.src}
 					alt="space ship illustration"
 				/>
@@ -78,7 +87,7 @@ const slug = 'home'
 				class="entry-content flex flex-col items-center justify-center pb-12"
 				itemprop="articleBody"
 			>
-				<div class="home-logos -mt-6">
+				<div class="home-logos lg:-mt-24">
 					<h2
 						class="mb-2 text-center font-archivo-expanded text-sm uppercase tracking-wide text-sb-jasmine lg:text-base"
 					>
@@ -111,6 +120,53 @@ const slug = 'home'
 				</div>
 			</section>
 		</main>
+		<section class="badges full-width content-grid bg-sb-space-blue-700 pb-24">
+			<div class="badges-inner full-width content-grid">
+				<h2 class="mb-12 text-center text-2xl uppercase text-sb-green lg:pt-12 lg:text-3xl">
+					Your new site features:
+				</h2>
+				<div class="badges-wrap breakout grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-12">
+					<div class="badge mx-auto">
+						<div class="badge-image mx-auto mb-3 flex max-w-[200px] justify-center lg:h-[235px]">
+							<img src={SpeedBadge.src} alt="Speed Badge" />
+						</div>
+						<p class="px-8 text-center text-xl text-sb-foam lg:px-0 lg:text-xl">
+							Performance perfected. Faster = higher conversion rate.
+						</p>
+					</div>
+					<div class="badge mx-auto">
+						<div class="badge-image mx-auto mb-3 flex max-w-[250px] justify-center lg:h-[235px]">
+							<img
+								src={AccessibilityBadge.src}
+								alt="Accessibility space badge with robot and 100 in circle"
+							/>
+						</div>
+						<p class="px-3 px-8 text-center text-xl text-sb-foam lg:px-0 lg:text-xl">
+							Fully accessible means a better experience for everyone.
+						</p>
+					</div>
+					<div class="badge mx-auto">
+						<div class="badge-image mx-auto mb-3 flex max-w-[220px] justify-center lg:h-[235px]">
+							<img
+								src={ComposableBadge.src}
+								alt="Composable space badge with nuclear illustration and text 'Composable Cusomizable Modular Reusable'"
+							/>
+						</div>
+						<p class="px-8 text-center text-xl text-sb-foam lg:px-0 lg:text-xl">
+							Custom content blocks to help you stand out from the crowd.
+						</p>
+					</div>
+					<div class="badge mx-auto">
+						<div class="badge-image mx-auto mb-3 flex max-w-[210px] justify-center lg:h-[235px]">
+							<img src={HighImpactBadge.src} alt="Illustration of meteor hitting planet" />
+						</div>
+						<p class="px-8 text-center text-xl text-sb-foam lg:px-0 lg:text-xl">
+							Experiences that deliver for your and your customers.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section class="clients full-width bg-sb-space-blue-600">
 			<h2 class="mb-3 pt-6 text-center text-2xl uppercase text-sb-green lg:pt-12 lg:text-3xl">
 				Our Clients
