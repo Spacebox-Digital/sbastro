@@ -1,11 +1,12 @@
 ---
 import SpaceboxLogo from '@assets/images/SpaceboxLogoLockupLight.astro'
 import SpaceboxStarsWhite from '@assets/images/SpaceboxStarsWhite.astro'
+import SubscribeSimple from '@components/Subscribe/SubscribeSimple.astro'
 
 const year = new Date().getFullYear()
 ---
 
-<footer id="footer" class="relative h-[500px] bg-[#C1D7D2] pb-6 pt-24">
+<footer id="footer" class="relative bg-[#C1D7D2] pb-6 pt-24">
 	<div class="footer-stars absolute right-0 top-0 animate-pulse-slow text-sb-foam opacity-20">
 		<SpaceboxStarsWhite width="w-24 lg:w-[400px]" />
 	</div>
@@ -27,6 +28,11 @@ const year = new Date().getFullYear()
 				>
 			</p>
 		</div>
+		<section class="subscribe-outer my-12">
+			<section class="subscribe-inner px-6 lg:px-0">
+				<SubscribeSimple />
+			</section>
+		</section>
 		<div class="footer-copyright my-6 mt-auto">
 			<p class="text-sm text-sb-space-blue-700">
 				&copy; {year} Spacebox Digital LLC. All rights reserved.
