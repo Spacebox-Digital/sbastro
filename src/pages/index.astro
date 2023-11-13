@@ -9,6 +9,7 @@ import PackLogo from '@assets/images/PackLogo.astro'
 import ShopifyLogo from '@assets/images/ShopifyLogo.astro'
 import NetflixLogo from '@assets/images/NetflixLogo.astro'
 import UMZULogo from '@assets/images/UMZULogo.astro'
+import Satellite from '@assets/images/Satellite.astro'
 import Subscribe from '@components/Subscribe/Subscribe.astro'
 
 import SpeedBadge from '@assets/images/extreme-speed-badge.svg'
@@ -41,7 +42,8 @@ const slug = 'home'
 					Spacebox is revolutionizing<br />headless e-commerce.
 				</h3>
 			</header>
-			<div class="hero-image hero-image-desktop full-width relative mt-6">
+
+			<div class="hero-image hero-image-desktop full-width relative mt-6 overflow-y-hidden">
 				<img
 					class="full-width hidden animate-pulse-slow opacity-20 lg:visible"
 					src={heroImage.src}
@@ -62,6 +64,9 @@ const slug = 'home'
 						>
 					</div>
 				</div>
+				<div class="arc full-width min-w-[99vw]">
+					<Satellite width="w-[32px]" />
+				</div>
 			</div>
 			<div class="hero-image-mobile full-width mt-6 lg:!hidden">
 				<img
@@ -81,6 +86,9 @@ const slug = 'home'
 							class="btn-primary decooration-none bg-sb-green hover:bg-sb-green-700">Work With Us</a
 						>
 					</div>
+				</div>
+				<div class="arc full-width min-w-[99vw]">
+					<Satellite width="w-[32px]" />
 				</div>
 			</div>
 			<section
