@@ -287,10 +287,10 @@ a {
 } */
 
 @keyframes rot {
-	to { transform: rotate(180deg); }
+	to { transform: rotate(120deg); }
 }
 
 .arc {
-    animation: rot 180s linear infinite;
+    animation: rot 90s linear infinite;
     transform-origin: center 3000%;
 }
