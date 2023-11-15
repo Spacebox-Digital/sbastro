@@ -294,3 +294,7 @@ a {
     animation: rot 90s linear infinite;
     transform-origin: center 3000%;
 }
+
+.stack-wrap {
+    place-self: self-start;
+}

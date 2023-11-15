@@ -1,7 +1,8 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro'
 import PageWrap from '@layouts/PageWrap.astro'
-import { Content as Content } from '@content/pages/what-we-do.md'
+
+import { Content as Content } from '@content/pages/what-we-do.mdx'
 
 const pageData = {
 	title: 'What We Do',
@@ -10,9 +11,17 @@ const pageData = {
 }
 ---
 
+<style>
+	.stack-wrap {
+		place-self: self-start;
+	}
+</style>
+
 <MainLayout>
 	<PageWrap pageData={pageData}>
-		<section class="content-outer prose min-h-[500px] pb-24 pt-6 text-sb-foam">
+		<section
+			class="content-outer content-grid full-width prose relative min-h-[500px] pb-24 pt-6 text-sb-foam"
+		>
 			<Content />
 		</section>
 	</PageWrap>
