@@ -14,9 +14,9 @@ import TailwindCSSLogo from '@assets/images/Tailwind_CSS_logo.svg'
 		/* How long one slide is visible on screen (from entering screen to leaving it) */
 		--scrolling-gallery-item-duration: 32s;
 		/* How many items we want to see on screen at once */
-		--scrolling-gallery-items-visible: 4;
+		--scrolling-gallery-items-visible: 3;
 		/* How many items are to scroll */
-		--scrolling-gallery-items-total: 4;
+		--scrolling-gallery-items-total: 7;
 		/* margin-top: 2.25em; */
 		overflow: hidden;
 		/* will-change: transform; */
@@ -60,6 +60,7 @@ import TailwindCSSLogo from '@assets/images/Tailwind_CSS_logo.svg'
 		width: 100%;
 		max-width: 300px;
 		padding: 2.2rem;
+		margin: 0 !important;
 	}
 
 	@keyframes scrolling-gallery {
@@ -73,17 +74,17 @@ import TailwindCSSLogo from '@assets/images/Tailwind_CSS_logo.svg'
 		}
 	}
 
-	.scroller:hover,
+	/* .scroller:hover,
 	.scroller:focus {
 		animation-play-state: paused;
+	} */
+
+	.scroller__wrapper {
+		--scrolling-gallery-items-visible: 4;
 	}
 
 	.scroller__wrapper {
-		--scrolling-gallery-items-visible: 3;
-	}
-
-	.scroller__wrapper {
-		--scrolling-gallery-item-duration: 32s;
+		--scrolling-gallery-item-duration: 25s;
 	}
 </style>
 
@@ -102,6 +103,15 @@ import TailwindCSSLogo from '@assets/images/Tailwind_CSS_logo.svg'
 			<div class="scroller__item"><img src={TailwindCSSLogo.src} alt="Tailwind CSS logo" /></div>
 
 			<!-- Here are exact copy of previous items -->
+			<div class="scroller__item"><img src={PackLogo.src} alt="Pack Digital logo" /></div>
+			<div class="scroller__item"><img src={ShopifyLogo.src} alt="Shopify logo" /></div>
+			<div class="scroller__item"><img src={NextJSLogo.src} alt="NextJS logo" /></div>
+			<div class="scroller__item"><img src={HydrogenLogo.src} alt="Shopify Hydrogen logo" /></div>
+			<div class="scroller__item"><img src={RemixLogo.src} alt="Remix Run logo" /></div>
+			<div class="scroller__item"><img src={AstroLogo.src} alt="Astro logo" /></div>
+			<div class="scroller__item"><img src={SpaceboxLogo.src} alt="Spacebox logo" /></div>
+			<div class="scroller__item"><img src={TailwindCSSLogo.src} alt="Tailwind CSS logo" /></div>
+
 			<div class="scroller__item"><img src={PackLogo.src} alt="Pack Digital logo" /></div>
 			<div class="scroller__item"><img src={ShopifyLogo.src} alt="Shopify logo" /></div>
 			<div class="scroller__item"><img src={NextJSLogo.src} alt="NextJS logo" /></div>
