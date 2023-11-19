@@ -11,6 +11,8 @@ if (slug) {
 } else {
 	pageSlug = pageData?.slug ? pageData.slug : ''
 }
+
+console.log('pageSlug', pageSlug)
 ---
 
 <div id="content" class={`page page-${pageSlug} ${pageSlug}`}>
