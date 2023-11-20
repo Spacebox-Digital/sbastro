@@ -24,52 +24,86 @@ const slug = 'home'
 	<div id="content" class="page page-home home">
 		<main
 			id="main"
-			class="main content-grid full-width relative overflow-hidden bg-sb-space-blue-700 pb-12 pb-6 pt-6 lg:pt-6"
+			class="main content-grid bg-sb-space-blue-700 pb-12 pb-6 pt-6 lg:pt-6"
 			role="main"
 			itemscope
 			itemprop="mainContentOfPage"
 			itemtype="https://schema.org/Page"
 		>
-			<img
-				class="full-width absolute left-0 top-0 z-0 h-full animate-pulse-slow object-cover opacity-20 lg:h-auto"
-				src={heroImage.src}
-				alt="space ship illustration"
-			/>
-
 			<header class="article-header page-header">
 				<h1 class="entry-title page-title hidden" itemprop="headline">Spacebox</h1>
 				<h2 class="mb-3 text-center text-base text-sb-pear lg:text-2xl">Hello. We're:</h2>
 				<div class="spacebox-logo mx-auto px-4 lg:max-w-[1000px] lg:px-0">
 					<SpaceboxLogoLockupLight />
 				</div>
-				<h3 class="my-12 px-4 text-center text-xl text-sb-pear lg:px-0 lg:px-6 lg:text-4xl">
+				<h3
+					class="relative top-12 mb-12 mt-4 px-4 text-center text-xl text-sb-pear lg:px-0 lg:px-6 lg:text-4xl"
+				>
 					Spacebox is revolutionizing<br />headless e-commerce.
 				</h3>
 			</header>
-			<div class="arc full-width min-w-[99vw]">
-				<Satellite width="w-[32px]" />
-			</div>
-			<div class="content-wrap content left-1/2 mx-auto my-12 w-full max-w-[600px]">
-				<p class="mx-auto mb-4 text-center text-lg text-sb-foam lg:text-xl xl:mb-12 xl:text-2xl">
-					We create best-in-class headless storefronts for businesses that are ready to <span
-						class="text-sb-orange">blast off</span
-					>. 🚀
-				</p>
-				<div class="home-cta mb-12 flex flex-col items-center justify-center md:mb-24 lg:mb-32">
-					<a href="/contact" class="btn-primary decooration-none bg-sb-green hover:bg-sb-green-700"
-						>Work With Us</a
-					>
-					<a class="mt-3 text-center text-sb-green underline" href="/what-we-do">Learn more</a>
-				</div>
 
-				<div class="home-logos flex flex-col items-center justify-center">
+			<div class="hero-image hero-image-desktop full-width relative mt-6 overflow-hidden">
+				<img
+					class="full-width hidden animate-pulse-slow opacity-20 lg:visible"
+					src={heroImage.src}
+					alt="space ship illustration"
+				/>
+				<div
+					class="content-wrap content left-1/2 mx-auto mt-12 w-full max-w-[600px] -translate-x-2/4 place-self-center md:absolute"
+				>
+					<p class="mx-auto mb-4 text-center text-sm text-sb-foam lg:text-xl xl:mb-12 xl:text-2xl">
+						We create best-in-class headless storefronts for businesses that are ready to <span
+							class="text-sb-orange">blast off</span
+						>. 🚀
+					</p>
+					<div class="home-cta flex flex-col items-center justify-center lg:mb-32">
+						<a
+							href="/contact"
+							class="btn-primary decooration-none bg-sb-green hover:bg-sb-green-700">Work With Us</a
+						>
+						<a class="mt-3 text-center text-sb-green underline" href="/what-we-do">Learn more</a>
+					</div>
+				</div>
+				<div class="arc full-width min-w-[99vw]">
+					<Satellite width="w-[32px]" />
+				</div>
+			</div>
+			<div class="hero-image-mobile full-width mt-6 overflow-hidden lg:!hidden">
+				<img
+					class="full-width animate-pulse-slow opacity-20"
+					src={heroImageMobile.src}
+					alt="space ship illustration"
+				/>
+				<div class="content-wrap content absolute place-self-center">
+					<p class="mx-auto mb-6 max-w-[500px] text-center text-xl text-sb-foam">
+						We create best-in-class headless storefronts for businesses that are ready to <span
+							class="text-sb-orange">blast off</span
+						>. 🚀
+					</p>
+					<div class="home-cta flex items-center justify-center">
+						<a
+							href="/contact"
+							class="btn-primary decooration-none bg-sb-green hover:bg-sb-green-700">Work With Us</a
+						>
+					</div>
+				</div>
+				<div class="arc full-width min-w-[99vw]">
+					<Satellite width="w-[32px]" />
+				</div>
+			</div>
+			<section
+				class="entry-content flex flex-col items-center justify-center pb-12 xl:mt-12"
+				itemprop="articleBody"
+			>
+				<div class="home-logos lg:-mt-12 xl:-mt-24">
 					<h2
 						class="mb-2 text-center font-archivo-expanded text-sm uppercase tracking-wide text-sb-jasmine lg:text-base"
 					>
 						Our Partners
 					</h2>
 					<div
-						class="home-logos-inner mx-auto inline-flex items-center justify-center gap-x-6 rounded-3xl bg-sb-space-blue px-6 py-3"
+						class="home-logos-inner inline-flex items-center justify-center gap-x-6 rounded-3xl bg-sb-space-blue px-6 py-3 lg:mx-auto"
 					>
 						<div class="home-logos__item flex items-center justify-center text-sb-jasmine">
 							<a
@@ -93,8 +127,9 @@ const slug = 'home'
 						</div>
 					</div>
 				</div>
-			</div>
-
+			</section>
+		</main>
+		<section class="badges full-width content-grid bg-sb-space-blue-700 pb-24">
 			<div class="badges-inner full-width content-grid">
 				<h2 class="mb-12 text-center text-2xl uppercase text-sb-pear lg:pt-12 lg:text-3xl">
 					Spacebox Storefront Features:
@@ -140,40 +175,40 @@ const slug = 'home'
 					</div>
 				</div>
 			</div>
-			<section class="clients full-width mt-12 bg-sb-space-blue-700 lg:mt-24">
-				<h2 class="mb-3 pt-6 text-center text-2xl uppercase text-sb-pear lg:pt-12 lg:text-3xl">
-					Our Clients
-				</h2>
-				<div
-					class="clients-inner wrap-xl mx-auto flex flex-wrap items-center justify-center gap-x-24 gap-y-12 pb-8 pt-6 lg:flex-nowrap lg:pb-24 lg:pt-12"
-				>
-					<div class="home-logos__item flex items-center justify-center gap-x-8">
-						<a
-							class="hover:opacity-80"
-							href="https://netflix.com/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<NetflixLogo width="w-[160px]" />
-						</a>
-					</div>
-					<div class="home-logos__item flex items-center justify-center text-white">
-						<a
-							class="hover:opacity-80"
-							href="https://umzu.com"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<UMZULogo width="w-[180px]" />
-						</a>
-					</div>
+		</section>
+		<section class="clients full-width bg-sb-space-blue-600">
+			<h2 class="mb-3 pt-6 text-center text-2xl uppercase text-sb-pear lg:pt-12 lg:text-3xl">
+				Our Clients
+			</h2>
+			<div
+				class="clients-inner wrap-xl mx-auto flex flex-wrap items-center justify-center gap-x-24 gap-y-12 pb-8 pt-6 lg:flex-nowrap lg:pb-24 lg:pt-12"
+			>
+				<div class="home-logos__item flex items-center justify-center gap-x-8">
+					<a
+						class="hover:opacity-80"
+						href="https://netflix.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<NetflixLogo width="w-[160px]" />
+					</a>
 				</div>
+				<div class="home-logos__item flex items-center justify-center text-white">
+					<a
+						class="hover:opacity-80"
+						href="https://umzu.com"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<UMZULogo width="w-[180px]" />
+					</a>
+				</div>
+			</div>
+		</section>
+		<section class="subscribe-outer full-width bg-sb-space-blue">
+			<section class="subscribe-inner px-6 lg:px-0">
+				<Subscribe />
 			</section>
-			<section class="subscribe-outer full-width bg-sb-space-blue-700">
-				<section class="subscribe-inner px-6 lg:px-0">
-					<Subscribe />
-				</section>
-			</section>
-		</main>
+		</section>
 	</div>
 </MainLayout>
