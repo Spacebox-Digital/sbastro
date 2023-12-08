@@ -21,7 +21,10 @@ const slug = 'home'
 ---
 
 <MainLayout slug={slug}>
-	<div id="content" class="page page-home home">
+	<div id="content" class="page page-home home relative overflow-hidden">
+		<div class="arc absolute left-0 top-[300px] z-50 min-w-[90vw] overflow-hidden">
+			<Satellite width="w-[32px]" />
+		</div>
 		<main
 			id="main"
 			class="main content-grid full-width relative overflow-hidden bg-sb-space-blue-700 pb-12 pb-6 pt-6 lg:pt-6"
@@ -46,9 +49,7 @@ const slug = 'home'
 					Spacebox is revolutionizing<br />headless e-commerce.
 				</h3>
 			</header>
-			<div class="arc full-width min-w-[99vw]">
-				<Satellite width="w-[32px]" />
-			</div>
+
 			<div class="content-wrap content left-1/2 mx-auto my-12 w-full max-w-[600px]">
 				<p class="mx-auto mb-4 text-center text-lg text-sb-foam lg:text-xl xl:mb-12 xl:text-2xl">
 					We create best-in-class headless storefronts for businesses that are ready to <span

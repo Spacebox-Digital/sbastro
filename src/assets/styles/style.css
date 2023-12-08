@@ -291,8 +291,8 @@ a {
 }
 
 .arc {
-    animation: rot 90s linear infinite;
-    transform-origin: center 3000%;
+    animation: rot 120s linear infinite;
+    transform-origin: center 6000%;
 }
 
 .stack-wrap {
